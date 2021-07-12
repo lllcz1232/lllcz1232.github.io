@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021/7 | Hexo</title>
+  <title>Linux安装redis | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2021/07/index.html">
+  <meta name="description" content="一，下载： ​    1，下载页面: ​    https:&#x2F;&#x2F;redis.io&#x2F; ​    2,下载 1[root@localhost source]# wget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-5.0.7.tar.gz  说明：架构森林是一个专注架构的博客，地址：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;architectforest ​">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux安装redis">
+<meta property="og:url" content="http://example.com/year/ckr08c5rq000dlouggopa08e2/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一，下载： ​    1，下载页面: ​    https:&#x2F;&#x2F;redis.io&#x2F; ​    2,下载 1[root@localhost source]# wget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-5.0.7.tar.gz  说明：架构森林是一个专注架构的博客，地址：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;architectforest ​">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-12T06:10:23.795Z">
+<meta property="article:modified_time" content="2021-07-12T06:09:36.839Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -132,74 +137,113 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Linux—7.redis安装" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/ckr08c5rc0000lougc5g725o2/" class="archive-article-date">
-  	<time datetime="2021-07-12T06:10:32.969Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/ckr08c5rc0000lougc5g725o2/">Centos开放及查看端口端口设置</a>
+    <h1 class="article-title" itemprop="name">
+      Linux安装redis
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/ckr08c5rq000dlouggopa08e2/" class="archive-article-date">
+        
+        <a href="/year/ckr08c5rq000dlouggopa08e2/" class="archive-article-date">
   	<time datetime="2021-07-12T06:10:23.795Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/ckr08c5rq000dlouggopa08e2/">Linux安装redis</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一，下载：</p>
+<p>​    1，下载页面:</p>
+<p>​    <a target="_blank" rel="noopener" href="https://redis.io/">https://redis.io/</a></p>
+<p>​    2,下载</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost source]# wget http://download.redis.io/releases/redis-5.0.7.tar.gz</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<p>说明：架构森林是一个专注架构的博客，地址：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/architectforest">https://www.cnblogs.com/architectforest</a></p>
+<p>​     对应的源码可以访问这里获取： <a target="_blank" rel="noopener" href="https://github.com/liuhongdi/">https://github.com/liuhongdi/</a></p>
+<p> 说明：作者:刘宏缔 邮箱: <a href="mailto:&#x33;&#55;&#49;&#x31;&#x32;&#53;&#x33;&#x30;&#x37;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#x6d;">&#x33;&#55;&#49;&#x31;&#x32;&#53;&#x33;&#x30;&#x37;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#x6d;</a></p>
+<p>二，解压：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost source]# tar -xzvf redis-5.0.7.tar.gz </span><br></pre></td></tr></table></figure>
+
+<p>三，准备编译</p>
+<p>1, 请在操作前确认gcc是否已安装，</p>
+<p>如未安装，可以执行这个命令安装：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost redis-5.0.7]# yum install gcc</span><br></pre></td></tr></table></figure>
+
+<p>2,请在操作前确认tcl是否已安装</p>
+<p>如未安装，可以执行这个命令安装：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost redis-5.0.7]# yum install tcl</span><br></pre></td></tr></table></figure>
+
+<p>四，编译：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost source]# cd redis-5.0.7/</span><br><span class="line"></span><br><span class="line">[root@localhost redis-5.0.7]# make MALLOC=libc</span><br></pre></td></tr></table></figure>
+
+<p>说明：make 后加 MALLOC的参数的原因：</p>
+<p>​     避免提示找不到 jemalloc/jemalloc.h</p>
+<p>五，测试编译：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost redis-5.0.7]# make test</span><br></pre></td></tr></table></figure>
+
+<p>如果看到以下字样：表示无错误:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\o/ All tests passed without errors!</span><br></pre></td></tr></table></figure>
+
+
+
+<p>六，安装：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost redis-5.0.7]# mkdir /usr/local/soft/redis5</span><br><span class="line">[root@localhost redis-5.0.7]# cd /usr/local/soft/redis5/</span><br><span class="line">[root@localhost redis5]# mkdir bin</span><br><span class="line">[root@localhost redis5]# mkdir conf</span><br><span class="line">[root@localhost redis5]# cd bin/</span><br><span class="line">[root@localhost bin]# cp /usr/local/source/redis-5.0.7/src/redis-cli ./</span><br><span class="line">[root@localhost bin]# cp /usr/local/source/redis-5.0.7/src/redis-server ./</span><br><span class="line">[root@localhost bin]# cd ../conf/</span><br><span class="line">[root@localhost conf]# cp /usr/local/source/redis-5.0.7/redis.conf ./</span><br></pre></td></tr></table></figure>
+
+<p>七，配置:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost conf]# vi redis.conf</span><br></pre></td></tr></table></figure>
+
+<p>设置以下两个地方:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># daemonize no</span><br><span class="line">daemonize yes</span><br><span class="line"></span><br><span class="line"># maxmemory &lt;bytes&gt;</span><br><span class="line">maxmemory 128MB </span><br></pre></td></tr></table></figure>
+
+<p>说明：分别是以daemon方式独立运行  / 内存的最大使用限制</p>
+<p>八，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost conf]# /usr/local/soft/redis5/bin/redis-server /usr/local/soft/redis5/conf/redis.conf</span><br></pre></td></tr></table></figure>
+
+<p>九，检查端口是否在使用中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost conf]# netstat -anp | grep 6379</span><br><span class="line"></span><br><span class="line">tcp        0      0 127.0.0.1:6379          0.0.0.0:*               LISTEN      16073/redis-server  </span><br></pre></td></tr></table></figure>
+
+<p>十，查看redis的当前版本:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost conf]# /usr/local/soft/redis5/bin/redis-server -v</span><br><span class="line"></span><br><span class="line">Redis server v=5.0.7 sha=00000000:0 malloc=libc bits=64 build=8e31d2ed9a4c9593</span><br></pre></td></tr></table></figure>
+
+<p>十一,使redis可以用systemd方式启动和管理</p>
+<p>1,编辑service文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost liuhongdi]# vim /lib/systemd/system/redis.service</span><br></pre></td></tr></table></figure>
+
+<p>2,service文件内容:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Redis</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">PIDFile=/var/run/redis_6379.pid</span><br><span class="line">ExecStart=/usr/local/soft/redis5/bin/redis-server /usr/local/soft/redis5/conf/redis.conf</span><br><span class="line">ExecReload=/bin/kill -s HUP $MAINPID</span><br><span class="line">ExecStop=/bin/kill -s QUIT $MAINPID</span><br><span class="line">PrivateTmp=true</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>3.重载系统服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost liuhongdi]# systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+
+<p>4,用来管理redis</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">启动</span><br><span class="line">systemctl start redis    </span><br><span class="line">查看状态</span><br><span class="line">systemctl status redis</span><br><span class="line">使开机启动</span><br><span class="line">systemctl enable redis</span><br></pre></td></tr></table></figure>
+
+<p>十二，查看本地centos的版本:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost lib]# cat /etc/redhat-release </span><br><span class="line">CentOS Linux release 8.1.1911 (Core) </span><br></pre></td></tr></table></figure>
+
+<p>查询redis</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep redis</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="添加密码"><a href="#添加密码" class="headerlink" title="添加密码"></a>添加密码</h3><p>修改配置文件/etc/redis.conf</p>
+<p>在#requirepass foobared下面添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requirepass 123456</span><br></pre></td></tr></table></figure>
+
+<p>2 重启服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service redis restart</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -211,323 +255,115 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/year/ckr08c5rq000dlouggopa08e2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/ckr08c5rp000aloug68qsbsmk/" class="archive-article-date">
-  	<time datetime="2021-07-12T06:10:23.794Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/year/ckr08c5rc0000lougc5g725o2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Centos开放及查看端口端口设置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/year/ckr08c5rp000aloug68qsbsmk/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">安装mysql</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/ckr08c5rp000aloug68qsbsmk/">安装mysql</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/ckr08c5ro0008loug46ag5c0t/" class="archive-article-date">
-  	<time datetime="2021-07-12T06:10:23.792Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/ckr08c5ro0008loug46ag5c0t/">Linux安装RabbitMQ</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/ckr08c5rl0004loug9ipxbcx2/" class="archive-article-date">
-  	<time datetime="2021-07-12T06:10:23.790Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/ckr08c5rl0004loug9ipxbcx2/">Linux下载及安装nginx过程记录</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/ckr08c5rm0005lougaouk9jk7/" class="archive-article-date">
-  	<time datetime="2021-07-12T06:10:23.789Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/ckr08c5rm0005lougaouk9jk7/">Linux安装c++编译环境</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/ckr08c5rk0003loug0oi4eidi/" class="archive-article-date">
-  	<time datetime="2021-07-12T06:10:23.786Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/ckr08c5rk0003loug0oi4eidi/">安装JDK</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/ckr08c5rq000flougejkfbxon/" class="archive-article-date">
-  	<time datetime="2021-07-12T06:10:23.784Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/ckr08c5rq000flougejkfbxon/">Linux安装nacos</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/ckr08c5rs000hloug9d9u6y2z/" class="archive-article-date">
-  	<time datetime="2021-07-12T05:38:43.635Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/ckr08c5rs000hloug9d9u6y2z/">hexo+GithubPages创建自己的blog</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/ckr08c5rh0001loug2rdz187m/" class="archive-article-date">
-  	<time datetime="2021-07-12T05:17:37.740Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/ckr08c5rh0001loug2rdz187m/">本地文件上传Linux服务器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -550,8 +386,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
