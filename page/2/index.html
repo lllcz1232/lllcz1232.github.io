@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Linux安装redis | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一，下载： ​    1，下载页面: ​    https:&#x2F;&#x2F;redis.io&#x2F; ​    2,下载 1[root@localhost source]# wget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-5.0.7.tar.gz  说明：架构森林是一个专注架构的博客，地址：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;architectforest ​">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Linux安装redis">
-<meta property="og:url" content="http://example.com/year/ckr08c5rq000dlouggopa08e2/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一，下载： ​    1，下载页面: ​    https:&#x2F;&#x2F;redis.io&#x2F; ​    2,下载 1[root@localhost source]# wget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-5.0.7.tar.gz  说明：架构森林是一个专注架构的博客，地址：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;architectforest ​">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-12T06:10:23.795Z">
-<meta property="article:modified_time" content="2021-07-12T06:09:36.839Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -137,106 +132,63 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux—7.redis安装" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-Linux—8.安装nacos" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      Linux安装redis
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/cksecf6l8000hx4ug406fd6hg/">Linux安装nacos</a>
     </h1>
   
 
         
-        <a href="/year/ckr08c5rq000dlouggopa08e2/" class="archive-article-date">
-  	<time datetime="2021-07-12T06:10:23.795Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
+        <a href="/year/cksecf6l8000hx4ug406fd6hg/" class="archive-article-date">
+  	<time datetime="2021-07-12T06:10:23.784Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一，下载：</p>
-<p>​    1，下载页面:</p>
-<p>​    <a target="_blank" rel="noopener" href="https://redis.io/">https://redis.io/</a></p>
-<p>​    2,下载</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost source]# wget http://download.redis.io/releases/redis-5.0.7.tar.gz</span><br></pre></td></tr></table></figure>
+        <h2 id="1-下载nacos"><a href="#1-下载nacos" class="headerlink" title="1.下载nacos"></a>1.下载nacos</h2><p><a target="_blank" rel="noopener" href="https://github.com/alibaba/nacos/releases">https://github.com/alibaba/nacos/releases</a></p>
+<p>或者</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/alibaba/nacos/releases/download/1.3.2/nacos-server-1.3.2.tar.gz</span><br></pre></td></tr></table></figure>
 
-<p>说明：架构森林是一个专注架构的博客，地址：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/architectforest">https://www.cnblogs.com/architectforest</a></p>
-<p>​     对应的源码可以访问这里获取： <a target="_blank" rel="noopener" href="https://github.com/liuhongdi/">https://github.com/liuhongdi/</a></p>
-<p> 说明：作者:刘宏缔 邮箱: <a href="mailto:&#x33;&#55;&#49;&#x31;&#x32;&#53;&#x33;&#x30;&#x37;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#x6d;">&#x33;&#55;&#49;&#x31;&#x32;&#53;&#x33;&#x30;&#x37;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#x6d;</a></p>
-<p>二，解压：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost source]# tar -xzvf redis-5.0.7.tar.gz </span><br></pre></td></tr></table></figure>
+<h2 id="2-解压安装包"><a href="#2-解压安装包" class="headerlink" title="2.解压安装包"></a>2.解压安装包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nacos-server-1.3.2.tar.gz</span><br><span class="line">mv nacos /usr/local/</span><br></pre></td></tr></table></figure>
 
-<p>三，准备编译</p>
-<p>1, 请在操作前确认gcc是否已安装，</p>
-<p>如未安装，可以执行这个命令安装：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost redis-5.0.7]# yum install gcc</span><br></pre></td></tr></table></figure>
+<h2 id="3-配置启动脚本"><a href="#3-配置启动脚本" class="headerlink" title="3.配置启动脚本"></a>3.配置启动脚本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd ./nacos/bin/</span><br><span class="line">vim startup.sh</span><br><span class="line"><span class="meta">#</span><span class="bash">把jdk换成绝对路径，不然systemctl找不到java环境</span></span><br><span class="line">[ ! -e &quot;$JAVA_HOME/bin/java&quot; ] &amp;&amp; JAVA_HOME=/usr/local/jdk1.8</span><br><span class="line"><span class="meta">#</span><span class="bash">[ ! -e <span class="string">&quot;<span class="variable">$JAVA_HOME</span>/bin/java&quot;</span> ] &amp;&amp; JAVA_HOME=/usr/java</span></span><br><span class="line"><span class="meta">#</span><span class="bash">[ ! -e <span class="string">&quot;<span class="variable">$JAVA_HOME</span>/bin/java&quot;</span> ] &amp;&amp; JAVA_HOME=/opt/taobao/java</span></span><br><span class="line"><span class="meta">#</span><span class="bash">[ ! -e <span class="string">&quot;<span class="variable">$JAVA_HOME</span>/bin/java&quot;</span> ] &amp;&amp; <span class="built_in">unset</span> JAVA_HOME</span></span><br></pre></td></tr></table></figure>
 
-<p>2,请在操作前确认tcl是否已安装</p>
-<p>如未安装，可以执行这个命令安装：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost redis-5.0.7]# yum install tcl</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /lib/systemd/system/nacos.service</span><br></pre></td></tr></table></figure>
 
-<p>四，编译：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost source]# cd redis-5.0.7/</span><br><span class="line"></span><br><span class="line">[root@localhost redis-5.0.7]# make MALLOC=libc</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=nacos</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">ExecStart=/usr/local/nacos/bin/startup.sh -m standalone</span><br><span class="line">ExecReload=/usr/local/nacos/bin/shutdown.sh</span><br><span class="line">ExecStop=/usr/local/nacos/bin/shutdown.sh</span><br><span class="line">PrivateTmp=true</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
 
-<p>说明：make 后加 MALLOC的参数的原因：</p>
-<p>​     避免提示找不到 jemalloc/jemalloc.h</p>
-<p>五，测试编译：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost redis-5.0.7]# make test</span><br></pre></td></tr></table></figure>
+<p>保存后执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl enable nacos.service</span><br><span class="line">systemctl start nacos.service</span><br></pre></td></tr></table></figure>
 
-<p>如果看到以下字样：表示无错误:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\o/ All tests passed without errors!</span><br></pre></td></tr></table></figure>
+<h2 id="4-访问nacos"><a href="#4-访问nacos" class="headerlink" title="4.访问nacos"></a>4.访问nacos</h2><p><a target="_blank" rel="noopener" href="http://服务器ip:8848/nacos/">http://服务器IP:8848/nacos/</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用户名默认：nacos</span><br><span class="line">密码：nacos</span><br><span class="line">默认密码需尽快重置密码</span><br></pre></td></tr></table></figure>
 
+<h2 id="5-数据持续化"><a href="#5-数据持续化" class="headerlink" title="5.数据持续化"></a>5.数据持续化</h2><ul>
+<li><strong>初始化数据库</strong></li>
+</ul>
+<p>目前Nacos仅支持<code>Mysql</code>数据库，且版本要求：<code>5.6.5+</code></p>
+<p>Nacos的数据库脚本文件在我们下载Nacos-server时的压缩包中就有</p>
+<p>进入<code>nacos\conf</code>目录，初始化文件：<code>nacos-mysql.sql</code></p>
+<p>此处我创建一个名为 <code>nacos_config</code> 的数据库，然后执行初始化脚本</p>
+<ul>
+<li><strong>修改配置文件</strong></li>
+</ul>
+<p>这里是需要修改Nacos-server的配置文件</p>
+<p>Nacos-server其实就是一个Java工程或者说是一个Springboot项目，他的配置文件在<code>nacos\conf</code>目录下，名为 <code>application.properties</code>，在文件底部添加数据源配置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.platform=mysql</span><br><span class="line"></span><br><span class="line">db.num=1</span><br><span class="line">db.url.0=jdbc:mysql://127.0.0.1:3306/nacos_config?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true</span><br><span class="line">db.user=root</span><br><span class="line">db.password=123456</span><br></pre></td></tr></table></figure>
 
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43846510/article/details/106078873">https://blog.csdn.net/weixin_43846510/article/details/106078873</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/larscheng/p/11422909.html">https://www.cnblogs.com/larscheng/p/11422909.html</a></p>
 
-<p>六，安装：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost redis-5.0.7]# mkdir /usr/local/soft/redis5</span><br><span class="line">[root@localhost redis-5.0.7]# cd /usr/local/soft/redis5/</span><br><span class="line">[root@localhost redis5]# mkdir bin</span><br><span class="line">[root@localhost redis5]# mkdir conf</span><br><span class="line">[root@localhost redis5]# cd bin/</span><br><span class="line">[root@localhost bin]# cp /usr/local/source/redis-5.0.7/src/redis-cli ./</span><br><span class="line">[root@localhost bin]# cp /usr/local/source/redis-5.0.7/src/redis-server ./</span><br><span class="line">[root@localhost bin]# cd ../conf/</span><br><span class="line">[root@localhost conf]# cp /usr/local/source/redis-5.0.7/redis.conf ./</span><br></pre></td></tr></table></figure>
-
-<p>七，配置:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost conf]# vi redis.conf</span><br></pre></td></tr></table></figure>
-
-<p>设置以下两个地方:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># daemonize no</span><br><span class="line">daemonize yes</span><br><span class="line"></span><br><span class="line"># maxmemory &lt;bytes&gt;</span><br><span class="line">maxmemory 128MB </span><br></pre></td></tr></table></figure>
-
-<p>说明：分别是以daemon方式独立运行  / 内存的最大使用限制</p>
-<p>八，运行：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost conf]# /usr/local/soft/redis5/bin/redis-server /usr/local/soft/redis5/conf/redis.conf</span><br></pre></td></tr></table></figure>
-
-<p>九，检查端口是否在使用中</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost conf]# netstat -anp | grep 6379</span><br><span class="line"></span><br><span class="line">tcp        0      0 127.0.0.1:6379          0.0.0.0:*               LISTEN      16073/redis-server  </span><br></pre></td></tr></table></figure>
-
-<p>十，查看redis的当前版本:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost conf]# /usr/local/soft/redis5/bin/redis-server -v</span><br><span class="line"></span><br><span class="line">Redis server v=5.0.7 sha=00000000:0 malloc=libc bits=64 build=8e31d2ed9a4c9593</span><br></pre></td></tr></table></figure>
-
-<p>十一,使redis可以用systemd方式启动和管理</p>
-<p>1,编辑service文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost liuhongdi]# vim /lib/systemd/system/redis.service</span><br></pre></td></tr></table></figure>
-
-<p>2,service文件内容:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Redis</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">PIDFile=/var/run/redis_6379.pid</span><br><span class="line">ExecStart=/usr/local/soft/redis5/bin/redis-server /usr/local/soft/redis5/conf/redis.conf</span><br><span class="line">ExecReload=/bin/kill -s HUP $MAINPID</span><br><span class="line">ExecStop=/bin/kill -s QUIT $MAINPID</span><br><span class="line">PrivateTmp=true</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-
-<p>3.重载系统服务</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost liuhongdi]# systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-
-<p>4,用来管理redis</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">启动</span><br><span class="line">systemctl start redis    </span><br><span class="line">查看状态</span><br><span class="line">systemctl status redis</span><br><span class="line">使开机启动</span><br><span class="line">systemctl enable redis</span><br></pre></td></tr></table></figure>
-
-<p>十二，查看本地centos的版本:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost lib]# cat /etc/redhat-release </span><br><span class="line">CentOS Linux release 8.1.1911 (Core) </span><br></pre></td></tr></table></figure>
-
-<p>查询redis</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep redis</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="添加密码"><a href="#添加密码" class="headerlink" title="添加密码"></a>添加密码</h3><p>修改配置文件/etc/redis.conf</p>
-<p>在#requirepass foobared下面添加</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requirepass 123456</span><br></pre></td></tr></table></figure>
-
-<p>2 重启服务</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service redis restart</span><br></pre></td></tr></table></figure>
       
 
       
@@ -258,84 +210,16 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/cksecf6l8000hx4ug406fd6hg/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/year/ckr08c5rq000dlouggopa08e2/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/year/ckr08c5rc0000lougc5g725o2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Centos开放及查看端口端口设置
-        
-      </div>
-    </a>
-  
-  
-    <a href="/year/ckr08c5rp000aloug68qsbsmk/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">安装mysql</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -355,14 +239,264 @@
 
 
 
-  
-  
-  
 
   
-
+    <article id="post-hexo+GithubPages创建自己的blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/cksecf6l9000jx4ug0ppy4qrc/">hexo+GithubPages创建自己的blog</a>
+    </h1>
   
 
+        
+        <a href="/year/cksecf6l9000jx4ug0ppy4qrc/" class="archive-article-date">
+  	<time datetime="2021-07-12T05:38:43.635Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="搭建个人博客的步骤"><a href="#搭建个人博客的步骤" class="headerlink" title="搭建个人博客的步骤"></a>搭建个人博客的步骤</h2><h3 id="一、-GitHub创建个人仓库"><a href="#一、-GitHub创建个人仓库" class="headerlink" title="一、 GitHub创建个人仓库"></a>一、 GitHub创建个人仓库</h3><p>登录到GitHub,如果没有GitHub帐号，使用某个邮箱注册一个 GitHub 帐号：点击个人页面中的 New repository 创建新仓库。</p>
+<p>仓库的名字设定为：自己注册时的用户名 +.github.io</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">我的用户名为：Bitnut</span><br><span class="line">那么我的仓库名字就是：Bitnut.github.io</span><br></pre></td></tr></table></figure>
+
+<p>可见这个仓库是每个账号只能创建一个的<em>特殊类型仓库</em></p>
+<p>至此，你就已经相当于给自己的博客利用 github 的服务器搭了一个后台。很简单对不对~~</p>
+<p>注意点：</p>
+<ol>
+<li>注册的邮箱一定要验证，否则不会成功；</li>
+<li>仓库名字必须是：username.github.io，其中username是你的用户名；</li>
+<li>仓库创建成功不会立即生效，需要过一段时间，大概10-30分钟，或者更久，我的等了半个小时才生效；</li>
+</ol>
+<h3 id="二、-安装Node-js"><a href="#二、-安装Node-js" class="headerlink" title="二、 安装Node.js"></a>二、 安装Node.js</h3><p>由于 Hexo 基于 Node.js 因此我们到官网上下载一下 node.js。</p>
+<p>Node.js下载地址：<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">Download | Node.js</a><br>下载安装包，安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入 <code>node -v</code> 检测npm是否安装成功。</p>
+<ul>
+<li>如果 git bash 里面报错，到环境变量里面看看有没有 nodejs。没有的需要把nodejs的地址添加一下。如果已经有了，重启电脑应该就 OK。</li>
+</ul>
+<p>至此，安装Hexo的环境全部配置完成。</p>
+<p>三、 安装Hexo</p>
+<p>Hexo就是我们的个人博客网站的框架，这里需要自己在电脑常里创建一个文件夹。</p>
+<p><em>注意不要在这个文件夹下面试用 Git 创建仓库，因为后面安装的主题内可能会带有 git 仓库，这样会导致包管理的混乱。</em></p>
+<p>可以随意命名，这里命名为 Blog，Hexo 框架和以后我们自己发布的网页都在保存在这个本地文件夹中。创建好后，不需要进入文件夹中，在文件夹的父目录直接唤出 Git Bash。</p>
+<p>使用npm命令安装Hexo，输入：</p>
+<blockquote>
+<p>npm install -g hexo-cli</p>
+</blockquote>
+<p>初始化我们的博客，输入：</p>
+<blockquote>
+<p>hexo init Blog</p>
+</blockquote>
+<p>注意，这里的命令都是作用在刚刚创建的Blog文件夹中。进入到文件夹中<br>查看一下我们的目录结构：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7277397-a916f2c6b2d400e7.png" alt="img"></p>
+<p>为了检测我们的网站雏形，分别按顺序输入以下三条命令：</p>
+<blockquote>
+<p>hexo new test_my_site #创建一篇新文章<br>hexo g #生成文件<br>hexo s #本地 server 部署</p>
+</blockquote>
+<p>这样我们在本地成功部署了我们的博客<br>打开浏览器输入地址：</p>
+<p>localhost:4000</p>
+<h3 id="四、-常用的Hexo命令"><a href="#四、-常用的Hexo命令" class="headerlink" title="四、 常用的Hexo命令"></a>四、 常用的Hexo命令</h3><blockquote>
+<p>npm install hexo -g #安装Hexo<br>npm update hexo -g #升级<br>hexo init #初始化博客</p>
+</blockquote>
+<p>命令简写</p>
+<blockquote>
+<p>hexo n “我的博客” == hexo new “我的博客” #新建文章<br>hexo g == hexo generate #生成<br>hexo s == hexo server #启动服务预览<br>hexo d == hexo deploy #部署</p>
+</blockquote>
+<blockquote>
+<p>hexo server #Hexo会监视文件变动并自动更新，无须重启服务器<br>hexo server -s #静态模式<br>hexo server -p 5000 #更改端口<br>hexo server -i 192.168.1.1 #自定义 IP<br>hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令</p>
+</blockquote>
+<p>刚刚的三个命令依次是新建一篇博客文章、生成网页、在本地预览的操作。</p>
+<h3 id="五、-把博客的更新部署到-Github-上"><a href="#五、-把博客的更新部署到-Github-上" class="headerlink" title="五、 把博客的更新部署到 Github 上"></a>五、 把博客的更新部署到 Github 上</h3><p>上面只是在本地预览，接下来要做的就是就是推送更新，也就是发布网站，让我们的网站可以被更多的人访问。在设置之前，</p>
+<p>需要区分一下两个概念：</p>
+<ul>
+<li>在 Blog 根目录里的_config.yml文件称为站点配置文件</li>
+<li>进入根目录里的themes文件夹，里面也有个_config.yml文件，这个称为主题配置文件</li>
+</ul>
+<p>下一步将我们的Hexo与GitHub关联起来，打开站点的配置文件_config.yml，翻到最后修改为：</p>
+<blockquote>
+<p>deploy:<br>type: git<br>repo: 这里填入你之前在GitHub上创建仓库的完整路径<br>branch: master</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/7277397-5f03a6394dc2d475.png" alt="img"></p>
+<p>保存站点配置文件。</p>
+<p>以上的所有操作其实是在给 <code>hexo d</code> 这个命令做相应的配置，让 hexo 知道你要把 blog 部署在哪个位置，很显然，我们部署在我们GitHub的仓库里。最后安装Git部署插件，输入命令：</p>
+<blockquote>
+<p>npm install hexo-deployer-git –save</p>
+</blockquote>
+<p>完成后，我们分别输入三条命令：</p>
+<blockquote>
+<p>hexo clean<br>hexo g<br>hexo d</p>
+</blockquote>
+<p>第三条的 hexo d 就是部署网站命令，d是deploy的缩写。完成后，打开浏览器，在地址栏输入你的放置个人网站的仓库路径，即 <code>http://xxxx.github.io</code> 。其中的 xxxx 就是的GitHub用户名：</p>
+<p>你就会发现你的博客已经上线了，可以在网络上被访问了。</p>
+<ul>
+<li>注意：如果你前面操作的很快，那么你到这一步有可能没法访问，因为github那边给你的网站部署需要花费一些时间，大概需要最长半个小时的时间。</li>
+</ul>
+<h3 id="六、更换主题"><a href="#六、更换主题" class="headerlink" title="六、更换主题"></a>六、更换主题</h3><p>默认主题:neutral_face:emmmm，不是很好看。所以我们进行到了至关重要的一步！要知道，帅。是一辈子的事情~~~颜值不够看，看ni:horse:呢对吧？</p>
+<p>个人最欣赏的主题：<a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia">hexo-theme-yilia</a><br>这个主题兼顾了颜值和效率，同时在手机端可以有非常好的体验，因此我选择了它。</p>
+<p>当然你也可以选择其他主题。主题传送门：<a target="_blank" rel="noopener" href="https://hexo.io/themes/">Themes</a> 我自己使用的是 yilia 主题，可以在blog目录中的themes文件夹中查看你自己主题是什么。</p>
+<p>首先下载这个主题：<br>在根目录唤出 Git Bash,</p>
+<blockquote>
+<p>git clone <a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</p>
+</blockquote>
+<p>这是将 yilia 主题下载到 Blog 目录的 themes 主题下的 yilia 文件夹中。打开站点的_config.yml配置文件，将里面的 <code>theme: landscape</code> 改为 <code>theme: yilia</code>，然后重新执行 <code>hexo g</code> 来重新生成。</p>
+<p>如果出现一些莫名其妙的问题，可以先执行 <code>hexo clean</code> ，可以清理 public 文件夹里面的内容。然后重新生成和发布即可。</p>
+<h3 id="七、-让博客网址使用全英文路径"><a href="#七、-让博客网址使用全英文路径" class="headerlink" title="七、 让博客网址使用全英文路径"></a>七、 让博客网址使用全英文路径</h3><p>上面的微信分享二维码功能完成之后，手机扫码出来却不能访问，为什么呢？？</p>
+<p><em>原因在于你的文章可能使用了中文命名，而 hexo 默认使用了文章标题作为网址</em></p>
+<p>解决方案：修改 permalink 变量</p>
+<p>在博客根目录的配置文件（_config.yml）中这样修改：</p>
+<blockquote>
+<p>permalink: :year/:month/:day/:title # 这是原配置<br>permalink: :year/:id/ # 替换为此新配置</p>
+</blockquote>
+<p>并且在.\scaffolds\post.md中修改为：</p>
+<ul>
+<li>（注意新增了一个id:）</li>
+</ul>
+<blockquote>
+<p>title: hexo+GithubPages创建自己的blog<br>id: 1626068323635<br>date: 1626068323635<br>tags:</p>
+</blockquote>
+<p>这里我的 id 初始化的时候是日期，包含年月日时分秒。为了美观和便于识别，我在上传的时候会修改这个 id 使他保证和其他文章不冲突。</p>
+<p>我的做法是使用创建日期中的月+日+时+分+秒来定义一个id，比如<code>月日-时分秒</code> 。</p>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lanqingzhou/p/13477459.html">https://www.cnblogs.com/lanqingzhou/p/13477459.html</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/cksecf6l9000jx4ug0ppy4qrc/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux—1.本地文件上传服务器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/cksecf6l00003x4ug1urge413/">本地文件上传Linux服务器</a>
+    </h1>
+  
+
+        
+        <a href="/year/cksecf6l00003x4ug1urge413/" class="archive-article-date">
+  	<time datetime="2021-07-12T05:17:37.740Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、输入rz命令，看是否安装lrzsz，如果没有安装执行 yum -y install lrzsz </p>
+<p><img src="https://images2018.cnblogs.com/blog/1246428/201803/1246428-20180324191040556-1128737734.png" alt="img"></p>
+<p>2、安装成功后，输入rpm命令确认是否正确安装</p>
+<p><img src="https://images2018.cnblogs.com/blog/1246428/201803/1246428-20180324191512252-1577683426.png" alt="img"></p>
+<p>3、使用rz -y命令进行文件上传</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/cksecf6l00003x4ug1urge413/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -385,8 +519,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
@@ -460,7 +594,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
             
             <div class="clearfix"></div>

@@ -134,6 +134,446 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-sql递归查询上级" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/cksecf6la000lx4ug5giy42y3/">sql递归查询上级</a>
+    </h1>
+  
+
+        
+        <a href="/year/cksecf6la000lx4ug5giy42y3/" class="archive-article-date">
+  	<time datetime="2021-08-06T06:11:52.748Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SELECT csp.id, csp.permission_name, csp.code, csp.parent_id</span><br><span class="line">FROM ( </span><br><span class="line">	SELECT </span><br><span class="line">		@r AS _id, </span><br><span class="line">		(SELECT @r := parent_id FROM crm_sys_permission WHERE code = _id) AS parent_id, </span><br><span class="line">		@l := @l + 1 AS lvl </span><br><span class="line">	FROM (SELECT @r := 60024, @l := 0) vars, crm_sys_permission h </span><br><span class="line">	WHERE @r &lt;&gt; 0</span><br><span class="line">) sp </span><br><span class="line">JOIN crm_sys_permission csp ON sp._id = csp.code</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">DROP FUNCTION IF EXISTS fn_getPermissionParentNodes;</span><br><span class="line">CREATE  FUNCTION fn_getPermissionParentNodes (currentId INT) </span><br><span class="line">RETURNS VARCHAR (1000) </span><br><span class="line">BEGIN</span><br><span class="line">	DECLARE parentId VARCHAR (20);</span><br><span class="line">	DECLARE tempStr VARCHAR (1000) DEFAULT currentId;</span><br><span class="line">	WHILE currentId IS NOT NULL DO</span><br><span class="line">    SET parentId = (SELECT parent_id FROM crm_sys_permission WHERE code = currentId);</span><br><span class="line">		IF parentId IS NOT NULL THEN</span><br><span class="line">			SET tempStr = CONCAT(parentId, &#x27;,&#x27;, tempStr);</span><br><span class="line">			SET currentId = parentId;</span><br><span class="line">		ELSE </span><br><span class="line">			SET currentId = parentId;</span><br><span class="line">		END IF;</span><br><span class="line">	END WHILE;</span><br><span class="line">	RETURN tempStr;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/cksecf6la000lx4ug5giy42y3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java基础—12.Stream" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/cksecf6ld000tx4ug9w2agz2l/">Stream</a>
+    </h1>
+  
+
+        
+        <a href="/year/cksecf6ld000tx4ug9w2agz2l/" class="archive-article-date">
+  	<time datetime="2021-07-12T07:20:53.353Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h2><blockquote>
+<p><code>Stream</code>将要处理的元素集合看作一种流，在流的过程中，借助<code>Stream API</code>对流中的元素进行操作，比如：筛选、排序、聚合等。</p>
+</blockquote>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ee19bebe5294d5386518b2a6397cd50~tplv-k3u1fbpfcp-zoom-1.image" alt="image-20210701194245361"></p>
+<blockquote>
+<p>Stream<code> 的操作符大体上分为两种：</code><strong>中间操作符</strong><code>和</code><strong>终止操作符</strong></p>
+</blockquote>
+<h2 id="二、中间操作符"><a href="#二、中间操作符" class="headerlink" title="二、中间操作符"></a>二、中间操作符</h2><p><strong>对于数据流来说，中间操作符在执行指定处理程序后，数据流依然可以传递给下一级的操作符。</strong></p>
+<p> <strong>中间操作符包含8种(排除了parallel,sequential，这两个操作并不涉及到对数据流的加工操作)：</strong></p>
+<ol>
+<li>map(mapToInt, mapToLong, mapToDouble) 转换操作符，比如把A-&gt;B，这里默认提供了转int，long，double的操作符。</li>
+<li>flatmap(flatmapToInt, flatmapToLong, flatmapToDouble) 拍平操作，比如把 int[]{2,3,4} 拍平 变成 2，3，4 也就是从原来的一个数据变成了3个数据，这里默认提供了拍平成int,long,double的操作符。</li>
+<li>limit 限流操作，比如数据流中有10个，只要取出前3个。</li>
+<li>distinct 去重操作，对重复元素去重，底层使用equals方法。</li>
+<li>filter 过滤操作，把不想要的数据过滤。</li>
+<li>peek 挑出操作，如果想对数据进行某些操作，如：读取、编辑修改等。</li>
+<li>skip 跳过操作，跳过某些元素。</li>
+<li>sorted(unordered) 排序操作，对元素排序，前提是实现Comparable接口，当然也可以自定义比较器。</li>
+</ol>
+<h2 id="三、终止操作符"><a href="#三、终止操作符" class="headerlink" title="三、终止操作符"></a>三、终止操作符</h2><p><strong>数据经过中间加工操作，就轮到终止操作符上场了；</strong></p>
+<p><strong>终止操作符就是用来对数据进行收集或者消费的，数据到了终止操作这里就不会向下流动了，终止操作符只能使用一次。</strong></p>
+<p>collect 收集操作，将所有数据收集起来，这个操作非常重要，官方的提供的Collectors 提供了非常多收集器，可以说Stream 的核心在于Collectors。</p>
+<p>count 统计操作，统计最终的数据个数。</p>
+<p>findFirst、findAny 查找操作，查找第一个、查找任何一个 返回的类型为Optional。</p>
+<p>noneMatch、allMatch、anyMatch 匹配操作，数据流中是否存在符合条件的元素 返回值为bool 值。</p>
+<p>min、max 最值操作，需要自定义比较器，返回数据流中最大最小的值。</p>
+<p>reduce 规约操作，将整个数据流的值规约为一个值，count、min、max底层就是使用reduce。</p>
+<p>forEach、forEachOrdered 遍历操作，这里就是对最终的数据进行消费了。</p>
+<p>toArray 数组操作，将数据流的元素转换成数组。</p>
+<h2 id="四、Stream的创建"><a href="#四、Stream的创建" class="headerlink" title="四、Stream的创建"></a>四、Stream的创建</h2><p><strong>1、通过java.util.Collection.stream()方法用集合创建流</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">collectionCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; list = Lists.newArrayList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>);</span><br><span class="line">    <span class="comment">// 创建一个顺序流</span></span><br><span class="line">    Stream&lt;Integer&gt; stream = list.stream();</span><br><span class="line">    <span class="comment">// 创建一个并行流</span></span><br><span class="line">    Stream&lt;Integer&gt; integerStream = list.parallelStream();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2、使用<code>java.util.Arrays.stream(T[] array)</code>方法用数组创建流</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">arrayCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] array = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">    IntStream intStream = Arrays.stream(array);</span><br><span class="line">    intStream.forEach(System.out::println);</span><br><span class="line">    String[] str = &#123;<span class="string">&quot;mm&quot;</span>,<span class="string">&quot;ss&quot;</span>, <span class="string">&quot;dd&quot;</span>&#125;;</span><br><span class="line">    Stream&lt;String&gt; stream = Arrays.stream(str);</span><br><span class="line">    stream.forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3、使用<code>Stream</code>的静态方法：<code>of()、iterate()、generate()</code></strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">methodCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Stream&lt;Integer&gt; integerStream = Stream.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>);</span><br><span class="line">    Stream&lt;Integer&gt; iterate = Stream.iterate(<span class="number">0</span>, x -&gt; x + <span class="number">3</span>).limit(<span class="number">5</span>);</span><br><span class="line">    iterate.forEach(System.out::println);</span><br><span class="line">    Stream&lt;Double&gt; limit = Stream.generate(Math::random).limit(<span class="number">5</span>);</span><br><span class="line">    limit.forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>stream</code>和<code>parallelStream</code>的简单区分：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`stream`是顺序流，由主线程按顺序对流执行操作； `parallelStream`是并行流，内部以多线程并行执行的方式对流进行操作，但前提是流中的数据处理没有顺序要求。</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/840f813b60f84a12ac2add0bfa9a2919~tplv-k3u1fbpfcp-zoom-1.image" alt="image-20210701230623951"></p>
+<h2 id="五、Stream的使用"><a href="#五、Stream的使用" class="headerlink" title="五、Stream的使用"></a>五、Stream的使用</h2><h3 id="遍历-匹配（foreach-find-match）"><a href="#遍历-匹配（foreach-find-match）" class="headerlink" title="遍历/匹配（foreach/find/match）"></a>遍历/匹配（foreach/find/match）</h3><p><code>Stream</code>也是支持类似集合的遍历和匹配元素的，只是<code>Stream</code>中的元素是以<code>Optional</code>类型存在的。<code>Stream</code>的遍历、匹配非常简单。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">forTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; list = Lists.newArrayList(<span class="number">7</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="comment">// 过滤</span></span><br><span class="line">    list.stream().filter(x -&gt; x &gt; <span class="number">3</span>).forEach(System.out::println);</span><br><span class="line">    <span class="comment">// 匹配第一个</span></span><br><span class="line">    Optional&lt;Integer&gt; first = list.stream().filter(x -&gt; x &gt; <span class="number">3</span>).findFirst();</span><br><span class="line">    <span class="comment">// 匹配任意（适用于并行流）</span></span><br><span class="line">    Optional&lt;Integer&gt; any = list.parallelStream().filter(x -&gt; x &gt; <span class="number">3</span>).findAny();</span><br><span class="line">    <span class="comment">// 是否包含符合特定条件的元素</span></span><br><span class="line">    <span class="keyword">boolean</span> flag = list.stream().anyMatch(x -&gt; x &gt; <span class="number">3</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;匹配第一个值：&quot;</span> + first.get());</span><br><span class="line">    System.out.println(<span class="string">&quot;匹配任意一个值：&quot;</span> + any.get());</span><br><span class="line">    System.out.println(<span class="string">&quot;是否存在大于3的值：&quot;</span> + flag);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">7</span><br><span class="line">6</span><br><span class="line">9</span><br><span class="line">8</span><br><span class="line">匹配第一个值：7</span><br><span class="line">匹配任意一个值：8</span><br><span class="line">是否存在大于3的值：true</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="筛选（filter）"><a href="#筛选（filter）" class="headerlink" title="筛选（filter）"></a>筛选（filter）</h3><p>筛选，是按照一定的规则校验流中的元素，将符合条件的元素提取到新的流中的操作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">filterTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; list = Lists.newArrayList(<span class="number">7</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="comment">// 过滤</span></span><br><span class="line">    list.stream().filter(x -&gt; x &gt; <span class="number">3</span>).forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="聚合（max-min-count"><a href="#聚合（max-min-count" class="headerlink" title="聚合（max/min/count)"></a>聚合（max/min/count)</h3><p><code>max</code>、<code>min</code>、<code>count</code>这些字眼你一定不陌生，没错，在mysql中我们常用它们进行数据统计。Java stream中也引入了这些概念和用法，极大地方便了我们对集合、数组的数据统计工作。</p>
+<p><strong>案例一：获取<code>String</code>集合中最长的元素。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">maxTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; list = Lists.newArrayList(<span class="string">&quot;adnm&quot;</span>, <span class="string">&quot;admmt&quot;</span>, <span class="string">&quot;pot&quot;</span>, <span class="string">&quot;xbangd&quot;</span>, <span class="string">&quot;weoujgsd&quot;</span>);</span><br><span class="line">    Optional&lt;String&gt; max = list.stream().max(Comparator.comparing(String::length));</span><br><span class="line">    System.out.println(<span class="string">&quot;最长的字符串：&quot;</span> + max.get());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最长的字符串：weoujgsd</span><br></pre></td></tr></table></figure>
+
+<p><strong>案例二：获取<code>Integer</code>集合中的最大值。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">interMaxTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; list = Lists.newArrayList(<span class="number">7</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">4</span>, <span class="number">11</span>, <span class="number">6</span>);</span><br><span class="line">    <span class="comment">// 自然排序</span></span><br><span class="line">    Optional&lt;Integer&gt; max = list.stream().max(Integer::compareTo);</span><br><span class="line">    <span class="comment">// 自定义排序</span></span><br><span class="line">    Optional&lt;Integer&gt; max2 = list.stream().max(<span class="keyword">new</span> Comparator&lt;Integer&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Integer o1, Integer o2)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> o1.compareTo(o2);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    System.out.println(<span class="string">&quot;自然排序的最大值：&quot;</span> + max.get());</span><br><span class="line">    System.out.println(<span class="string">&quot;自定义排序的最大值：&quot;</span> + max2.get());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">自然排序的最大值：11</span><br><span class="line">自定义排序的最大值：11</span><br></pre></td></tr></table></figure>
+
+<p><strong>案例三：计算<code>Integer</code>集合中大于6的元素的个数。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">integerCountTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; list = Lists.newArrayList(<span class="number">7</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">4</span>, <span class="number">11</span>, <span class="number">6</span>);</span><br><span class="line">    <span class="keyword">long</span> count = list.stream().filter(x -&gt; x &gt; <span class="number">6</span>).count();</span><br><span class="line">    System.out.println(<span class="string">&quot;list中大于6的元素个数：&quot;</span> + count);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list中大于6的元素个数：3</span><br></pre></td></tr></table></figure>
+
+<h3 id="映射-map-flatMap"><a href="#映射-map-flatMap" class="headerlink" title="映射(map/flatMap)"></a>映射(map/flatMap)</h3><p>映射，可以将一个流的元素按照一定的映射规则映射到另一个流中。分为map和flatMap</p>
+<ul>
+<li><code>map</code>：接收一个函数作为参数，该函数会被应用到每个元素上，并将其映射成一个新的元素。</li>
+<li><code>flatMap</code>：接收一个函数作为参数，将流中的每个值都换成另一个流，然后把所有流连接成一个流。</li>
+</ul>
+<p><strong>案例一：英文字符串数组的元素全部改为大写。整数数组每个元素+3。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mapTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String[] strArr = &#123; <span class="string">&quot;abcd&quot;</span>, <span class="string">&quot;bcdd&quot;</span>, <span class="string">&quot;defde&quot;</span>, <span class="string">&quot;fTr&quot;</span> &#125;;</span><br><span class="line">    List&lt;String&gt; strList = Arrays.stream(strArr).map(String::toUpperCase).collect(Collectors.toList());</span><br><span class="line">    System.out.println(<span class="string">&quot;每个元素大写：&quot;</span> + strList);</span><br><span class="line">    List&lt;Integer&gt; intList = Arrays.asList(<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">11</span>);</span><br><span class="line">    List&lt;Integer&gt; integerList = intList.stream().map(x -&gt; x + <span class="number">3</span>).collect(Collectors.toList());</span><br><span class="line">    System.out.println(<span class="string">&quot;每个元素+3：&quot;</span> + integerList);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">每个元素大写：[ABCD, BCDD, DEFDE, FTR]</span><br><span class="line">每个元素+3：[4, 6, 8, 10, 12, 14]</span><br></pre></td></tr></table></figure>
+
+<p><strong>案例二：将两个字符数组合并成一个新的字符数组。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; list = Arrays.asList(<span class="string">&quot;m,k,l,a&quot;</span>, <span class="string">&quot;1,3,5,7&quot;</span>);</span><br><span class="line">    List&lt;String&gt; listNew = list.stream().flatMap(s -&gt; &#123;</span><br><span class="line">        <span class="comment">// 将每个元素转换成一个stream</span></span><br><span class="line">        String[] split = s.split(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">        Stream&lt;String&gt; s2 = Arrays.stream(split);</span><br><span class="line">        <span class="keyword">return</span> s2;</span><br><span class="line">    &#125;).collect(Collectors.toList());</span><br><span class="line">    System.out.println(<span class="string">&quot;处理前的集合：&quot;</span> + list);</span><br><span class="line">    System.out.println(<span class="string">&quot;处理后的集合：&quot;</span> + listNew);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">处理前的集合：[m,k,l,a, 1,3,5,7]</span><br><span class="line">处理后的集合：[m, k, l, a, 1, 3, 5, 7]</span><br></pre></td></tr></table></figure>
+
+<h3 id="归约-reduce"><a href="#归约-reduce" class="headerlink" title="归约(reduce)"></a>归约(reduce)</h3><p>归约，也称缩减，顾名思义，是把一个流缩减成一个值，能实现对集合求和、求乘积和求最值操作。</p>
+<p><strong>案例一：求<code>Integer</code>集合的元素之和、乘积和最大值。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; list = Arrays.asList(<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">11</span>, <span class="number">4</span>);</span><br><span class="line">    <span class="comment">// 求和方式1</span></span><br><span class="line">    Optional&lt;Integer&gt; sum = list.stream().reduce(Integer::sum);</span><br><span class="line">    <span class="comment">// 求和方式2</span></span><br><span class="line">    Optional&lt;Integer&gt; sum2 = list.stream().reduce((x, y) -&gt; x + y);</span><br><span class="line">    <span class="comment">// 求和方式3</span></span><br><span class="line">    Integer sum3 = list.stream().reduce(<span class="number">0</span>, Integer::sum);</span><br><span class="line">    <span class="comment">// 求乘积</span></span><br><span class="line">    Optional&lt;Integer&gt; product = list.stream().reduce((x, y) -&gt; x * y);</span><br><span class="line">    <span class="comment">// 求最大值1</span></span><br><span class="line">    Optional&lt;Integer&gt; max = list.stream().reduce((x, y) -&gt; x &gt; y ? x : y);</span><br><span class="line">    <span class="comment">// 求最大值2</span></span><br><span class="line">    Optional&lt;Integer&gt; max2 = list.stream().reduce(Integer::max);</span><br><span class="line">    System.out.println(<span class="string">&quot;list求和：&quot;</span> + sum.get() + <span class="string">&quot;,&quot;</span> + sum2.get() + <span class="string">&quot;,&quot;</span> + sum3);</span><br><span class="line">    System.out.println(<span class="string">&quot;list求积：&quot;</span> + product.get());</span><br><span class="line">    System.out.println(<span class="string">&quot;list求最大值：&quot;</span> + max.get() + <span class="string">&quot;,&quot;</span> + max2.get());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list求和：29,29,29</span><br><span class="line">list求积：2112</span><br><span class="line">list求最大值：11,11</span><br></pre></td></tr></table></figure>
+
+<h3 id="归集-toList-toSet-toMap"><a href="#归集-toList-toSet-toMap" class="headerlink" title="归集(toList/toSet/toMap)"></a>归集(toList/toSet/toMap)</h3><p>因为流不存储数据，那么在流中的数据完成处理后，需要将流中的数据重新归集到新的集合里。<code>toList</code>、<code>toSet</code>和<code>toMap</code>比较常用，另外还有<code>toCollection</code>、<code>toConcurrentMap</code>等复杂一些的用法。</p>
+<p>下面用一个案例演示<code>toList</code>、<code>toSet</code>和<code>toMap</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;  <span class="comment">// 姓名</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> salary; <span class="comment">// 薪资</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age; <span class="comment">// 年龄</span></span><br><span class="line">    <span class="keyword">private</span> String sex; <span class="comment">//性别</span></span><br><span class="line">    <span class="keyword">private</span> String area;  <span class="comment">// 地区</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; list = Arrays.asList(<span class="number">1</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">6</span>, <span class="number">20</span>);</span><br><span class="line">    List&lt;Integer&gt; listNew = list.stream().filter(x -&gt; x % <span class="number">2</span> == <span class="number">0</span>).collect(Collectors.toList());</span><br><span class="line">    Set&lt;Integer&gt; set = list.stream().filter(x -&gt; x % <span class="number">2</span> == <span class="number">0</span>).collect(Collectors.toSet());</span><br><span class="line">    List&lt;Person&gt; personList = <span class="keyword">new</span> ArrayList&lt;Person&gt;();</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Tom&quot;</span>, <span class="number">8900</span>, <span class="number">23</span>, <span class="string">&quot;male&quot;</span>, <span class="string">&quot;New York&quot;</span>));</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Jack&quot;</span>, <span class="number">7000</span>, <span class="number">25</span>, <span class="string">&quot;male&quot;</span>, <span class="string">&quot;Washington&quot;</span>));</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Lily&quot;</span>, <span class="number">7800</span>, <span class="number">21</span>, <span class="string">&quot;female&quot;</span>, <span class="string">&quot;Washington&quot;</span>));</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Anni&quot;</span>, <span class="number">8200</span>, <span class="number">24</span>, <span class="string">&quot;female&quot;</span>, <span class="string">&quot;New York&quot;</span>));</span><br><span class="line">    Map&lt;?, Person&gt; map = personList.stream().filter(p -&gt; p.getSalary() &gt; <span class="number">8000</span>)</span><br><span class="line">        .collect(Collectors.toMap(Person::getName, p -&gt; p));</span><br><span class="line">    System.out.println(<span class="string">&quot;toList:&quot;</span> + listNew);</span><br><span class="line">    System.out.println(<span class="string">&quot;toSet:&quot;</span> + set);</span><br><span class="line">    System.out.println(<span class="string">&quot;toMap:&quot;</span> + map);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">toList:[6, 4, 6, 6, 20]</span><br><span class="line">toSet:[4, 20, 6]</span><br><span class="line">toMap:&#123;Tom=Person&#123;name=&#x27;Tom&#x27;, salary=8900, age=23, sex=&#x27;male&#x27;, area=&#x27;New York&#x27;&#125;, Anni=Person&#123;name=&#x27;Anni&#x27;, salary=8200, age=24, sex=&#x27;female&#x27;, area=&#x27;New York&#x27;&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="统计-count-averaging"><a href="#统计-count-averaging" class="headerlink" title="统计(count/averaging)"></a>统计(count/averaging)</h3><p><code>Collectors</code>提供了一系列用于数据统计的静态方法：</p>
+<ul>
+<li>计数：<code>count</code></li>
+<li>平均值：<code>averagingInt</code>、<code>averagingLong</code>、<code>averagingDouble</code></li>
+<li>最值：<code>maxBy</code>、<code>minBy</code></li>
+<li>求和：<code>summingInt</code>、<code>summingLong</code>、<code>summingDouble</code></li>
+<li>统计以上所有：<code>summarizingInt</code>、<code>summarizingLong</code>、<code>summarizingDouble</code></li>
+</ul>
+<p><strong>案例：统计员工人数、平均工资、工资总额、最高工资。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    List&lt;Person&gt; personList = <span class="keyword">new</span> ArrayList&lt;Person&gt;();</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Tom&quot;</span>, <span class="number">8900</span>, <span class="number">23</span>, <span class="string">&quot;male&quot;</span>, <span class="string">&quot;New York&quot;</span>));</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Jack&quot;</span>, <span class="number">7000</span>, <span class="number">25</span>, <span class="string">&quot;male&quot;</span>, <span class="string">&quot;Washington&quot;</span>));</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Lily&quot;</span>, <span class="number">7800</span>, <span class="number">21</span>, <span class="string">&quot;female&quot;</span>, <span class="string">&quot;Washington&quot;</span>));</span><br><span class="line">    <span class="comment">// 求总数</span></span><br><span class="line">    <span class="keyword">long</span> count = personList.size();</span><br><span class="line">    <span class="comment">// 求平均工资</span></span><br><span class="line">    Double average = personList.stream().collect(Collectors.averagingDouble(Person::getSalary));</span><br><span class="line">    <span class="comment">// 求最高工资</span></span><br><span class="line">    Optional&lt;Integer&gt; max = personList.stream().map(Person::getSalary).max(Integer::compare);</span><br><span class="line">    <span class="comment">// 求工资之和</span></span><br><span class="line">    <span class="keyword">int</span> sum = personList.stream().mapToInt(Person::getSalary).sum();</span><br><span class="line">    <span class="comment">// 一次性统计所有信息</span></span><br><span class="line">    DoubleSummaryStatistics collect = personList.stream().collect(Collectors.summarizingDouble(Person::getSalary));</span><br><span class="line">    System.out.println(<span class="string">&quot;员工总数：&quot;</span> + count);</span><br><span class="line">    System.out.println(<span class="string">&quot;员工平均工资：&quot;</span> + average);</span><br><span class="line">    System.out.println(<span class="string">&quot;员工最高工资：&quot;</span> + max.get());</span><br><span class="line">    System.out.println(<span class="string">&quot;员工工资总和：&quot;</span> + sum);</span><br><span class="line">    System.out.println(<span class="string">&quot;员工工资所有统计：&quot;</span> + collect);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">员工总数：3</span><br><span class="line">员工平均工资：7900.0</span><br><span class="line">员工最高工资：8900</span><br><span class="line">员工工资总和：23700</span><br><span class="line">员工工资所有统计：DoubleSummaryStatistics&#123;count=3, sum=23700.000000, min=7000.000000, average=7900.000000, max=8900.000000&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="分组-partitioningBy-groupingBy"><a href="#分组-partitioningBy-groupingBy" class="headerlink" title="分组(partitioningBy/groupingBy)"></a>分组(partitioningBy/groupingBy)</h3><ul>
+<li>分区：将<code>stream</code>按条件分为两个<code>Map</code>，比如员工按薪资是否高于8000分为两部分。</li>
+<li>分组：将集合分为多个Map，比如员工按性别分组。有单级分组和多级分组。</li>
+</ul>
+<p><strong>案例：将员工按薪资是否高于8000分为两部分；将员工按性别和地区分组</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    List&lt;Person&gt; personList = <span class="keyword">new</span> ArrayList&lt;Person&gt;();</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Tom&quot;</span>, <span class="number">8900</span>, <span class="number">23</span>, <span class="string">&quot;male&quot;</span>, <span class="string">&quot;Washington&quot;</span>));</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Jack&quot;</span>, <span class="number">7000</span>, <span class="number">25</span>, <span class="string">&quot;male&quot;</span>, <span class="string">&quot;Washington&quot;</span>));</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Lily&quot;</span>, <span class="number">7800</span>, <span class="number">21</span>, <span class="string">&quot;female&quot;</span>, <span class="string">&quot;New York&quot;</span>));</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Anni&quot;</span>, <span class="number">8200</span>, <span class="number">24</span>, <span class="string">&quot;female&quot;</span>, <span class="string">&quot;New York&quot;</span>));</span><br><span class="line">    <span class="comment">// 将员工按薪资是否高于8000分组</span></span><br><span class="line">    Map&lt;Boolean, List&lt;Person&gt;&gt; part = personList.stream().collect(Collectors.partitioningBy(x -&gt; x.getSalary() &gt; <span class="number">8000</span>));</span><br><span class="line">    <span class="comment">// 将员工按性别分组</span></span><br><span class="line">    Map&lt;String, List&lt;Person&gt;&gt; group = personList.stream().collect(Collectors.groupingBy(Person::getSex));</span><br><span class="line">    <span class="comment">// 将员工先按性别分组，再按地区分组</span></span><br><span class="line">    Map&lt;String, Map&lt;String, List&lt;Person&gt;&gt;&gt; group2 = personList.stream().collect(Collectors.groupingBy(Person::getSex, Collectors.groupingBy(Person::getArea)));</span><br><span class="line">    System.out.println(<span class="string">&quot;员工按薪资是否大于8000分组情况：&quot;</span> + part);</span><br><span class="line">    System.out.println(<span class="string">&quot;员工按性别分组情况：&quot;</span> + group);</span><br><span class="line">    System.out.println(<span class="string">&quot;员工按性别、地区：&quot;</span> + group2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">员工按薪资是否大于8000分组情况：&#123;false=[Person&#123;name=&#x27;Jack&#x27;, salary=7000, age=25, sex=&#x27;male&#x27;, area=&#x27;Washington&#x27;&#125;, Person&#123;name=&#x27;Lily&#x27;, salary=7800, age=21, sex=&#x27;female&#x27;, area=&#x27;New York&#x27;&#125;], true=[Person&#123;name=&#x27;Tom&#x27;, salary=8900, age=23, sex=&#x27;male&#x27;, area=&#x27;Washington&#x27;&#125;, Person&#123;name=&#x27;Anni&#x27;, salary=8200, age=24, sex=&#x27;female&#x27;, area=&#x27;New York&#x27;&#125;]&#125;</span><br><span class="line">员工按性别分组情况：&#123;female=[Person&#123;name=&#x27;Lily&#x27;, salary=7800, age=21, sex=&#x27;female&#x27;, area=&#x27;New York&#x27;&#125;, Person&#123;name=&#x27;Anni&#x27;, salary=8200, age=24, sex=&#x27;female&#x27;, area=&#x27;New York&#x27;&#125;], male=[Person&#123;name=&#x27;Tom&#x27;, salary=8900, age=23, sex=&#x27;male&#x27;, area=&#x27;Washington&#x27;&#125;, Person&#123;name=&#x27;Jack&#x27;, salary=7000, age=25, sex=&#x27;male&#x27;, area=&#x27;Washington&#x27;&#125;]&#125;</span><br><span class="line">员工按性别、地区：&#123;female=&#123;New York=[Person&#123;name=&#x27;Lily&#x27;, salary=7800, age=21, sex=&#x27;female&#x27;, area=&#x27;New York&#x27;&#125;, Person&#123;name=&#x27;Anni&#x27;, salary=8200, age=24, sex=&#x27;female&#x27;, area=&#x27;New York&#x27;&#125;]&#125;, male=&#123;Washington=[Person&#123;name=&#x27;Tom&#x27;, salary=8900, age=23, sex=&#x27;male&#x27;, area=&#x27;Washington&#x27;&#125;, Person&#123;name=&#x27;Jack&#x27;, salary=7000, age=25, sex=&#x27;male&#x27;, area=&#x27;Washington&#x27;&#125;]&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="接合-joining"><a href="#接合-joining" class="headerlink" title="接合(joining)"></a>接合(joining)</h3><p><code>joining</code>可以将stream中的元素用特定的连接符（没有的话，则直接连接）连接成一个字符串。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    List&lt;Person&gt; personList = <span class="keyword">new</span> ArrayList&lt;Person&gt;();</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Tom&quot;</span>, <span class="number">8900</span>, <span class="number">23</span>, <span class="string">&quot;male&quot;</span>, <span class="string">&quot;New York&quot;</span>));</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Jack&quot;</span>, <span class="number">7000</span>, <span class="number">25</span>, <span class="string">&quot;male&quot;</span>, <span class="string">&quot;Washington&quot;</span>));</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Lily&quot;</span>, <span class="number">7800</span>, <span class="number">21</span>, <span class="string">&quot;female&quot;</span>, <span class="string">&quot;Washington&quot;</span>));</span><br><span class="line">    String names = personList.stream().map(Person::getName).collect(Collectors.joining(<span class="string">&quot;,&quot;</span>));</span><br><span class="line">    System.out.println(<span class="string">&quot;所有员工的姓名：&quot;</span> + names);</span><br><span class="line">    List&lt;String&gt; list = Arrays.asList(<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;C&quot;</span>);</span><br><span class="line">    String string = list.stream().collect(Collectors.joining(<span class="string">&quot;-&quot;</span>));</span><br><span class="line">    System.out.println(<span class="string">&quot;拼接后的字符串：&quot;</span> + string);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">所有员工的姓名：Tom,Jack,Lily</span><br><span class="line">拼接后的字符串：A-B-C</span><br></pre></td></tr></table></figure>
+
+<h3 id="排序-sorted"><a href="#排序-sorted" class="headerlink" title="排序(sorted)"></a>排序(sorted)</h3><p><code>sorted</code>，中间操作。有两种排序：</p>
+<ul>
+<li><code>sorted()</code>：自然排序，流中元素需实现<code>Comparable</code>接口</li>
+<li><code>sorted(Comparator com)</code>：<code>Comparator</code>排序器自定义排序</li>
+</ul>
+<p><strong>案例：将员工按工资由高到低（工资一样则按年龄由大到小）排序</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    List&lt;Person&gt; personList = <span class="keyword">new</span> ArrayList&lt;Person&gt;();</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Sherry&quot;</span>, <span class="number">9000</span>, <span class="number">24</span>, <span class="string">&quot;female&quot;</span>, <span class="string">&quot;New York&quot;</span>));</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Tom&quot;</span>, <span class="number">8900</span>, <span class="number">22</span>, <span class="string">&quot;male&quot;</span>, <span class="string">&quot;Washington&quot;</span>));</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Jack&quot;</span>, <span class="number">9000</span>, <span class="number">25</span>, <span class="string">&quot;male&quot;</span>, <span class="string">&quot;Washington&quot;</span>));</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Lily&quot;</span>, <span class="number">8800</span>, <span class="number">26</span>, <span class="string">&quot;male&quot;</span>, <span class="string">&quot;New York&quot;</span>));</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Alisa&quot;</span>, <span class="number">9000</span>, <span class="number">26</span>, <span class="string">&quot;female&quot;</span>, <span class="string">&quot;New York&quot;</span>));</span><br><span class="line">    <span class="comment">// 按工资升序排序（自然排序）</span></span><br><span class="line">    List&lt;String&gt; newList = personList.stream().sorted(Comparator.comparing(Person::getSalary)).map(Person::getName)</span><br><span class="line">        .collect(Collectors.toList());</span><br><span class="line">    <span class="comment">// 按工资倒序排序</span></span><br><span class="line">    List&lt;String&gt; newList2 = personList.stream().sorted(Comparator.comparing(Person::getSalary).reversed())</span><br><span class="line">        .map(Person::getName).collect(Collectors.toList());</span><br><span class="line">    <span class="comment">// 先按工资再按年龄升序排序</span></span><br><span class="line">    List&lt;String&gt; newList3 = personList.stream()</span><br><span class="line">        .sorted(Comparator.comparing(Person::getSalary).thenComparing(Person::getAge)).map(Person::getName)</span><br><span class="line">        .collect(Collectors.toList());</span><br><span class="line">    <span class="comment">// 先按工资再按年龄自定义排序（降序）</span></span><br><span class="line">    List&lt;String&gt; newList4 = personList.stream().sorted((p1, p2) -&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (p1.getSalary() == p2.getSalary()) &#123;</span><br><span class="line">            <span class="keyword">return</span> p2.getAge() - p1.getAge();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> p2.getSalary() - p1.getSalary();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).map(Person::getName).collect(Collectors.toList());</span><br><span class="line">    System.out.println(<span class="string">&quot;按工资升序排序：&quot;</span> + newList);</span><br><span class="line">    System.out.println(<span class="string">&quot;按工资降序排序：&quot;</span> + newList2);</span><br><span class="line">    System.out.println(<span class="string">&quot;先按工资再按年龄升序排序：&quot;</span> + newList3);</span><br><span class="line">    System.out.println(<span class="string">&quot;先按工资再按年龄自定义降序排序：&quot;</span> + newList4);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">按工资升序排序：[Lily, Tom, Sherry, Jack, Alisa]</span><br><span class="line">按工资降序排序：[Sherry, Jack, Alisa, Tom, Lily]</span><br><span class="line">先按工资再按年龄升序排序：[Lily, Tom, Sherry, Jack, Alisa]</span><br><span class="line">先按工资再按年龄自定义降序排序：[Alisa, Jack, Sherry, Tom, Lily]</span><br></pre></td></tr></table></figure>
+
+<h3 id="提取-组合"><a href="#提取-组合" class="headerlink" title="提取/组合"></a>提取/组合</h3><p>流也可以进行合并、去重、限制、跳过等操作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String[] arr1 = &#123; <span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>, <span class="string">&quot;d&quot;</span> &#125;;</span><br><span class="line">    String[] arr2 = &#123; <span class="string">&quot;d&quot;</span>, <span class="string">&quot;e&quot;</span>, <span class="string">&quot;f&quot;</span>, <span class="string">&quot;g&quot;</span> &#125;;</span><br><span class="line">    Stream&lt;String&gt; stream1 = Stream.of(arr1);</span><br><span class="line">    Stream&lt;String&gt; stream2 = Stream.of(arr2);</span><br><span class="line">    <span class="comment">// concat:合并两个流 distinct：去重</span></span><br><span class="line">    List&lt;String&gt; newList = Stream.concat(stream1, stream2).distinct().collect(Collectors.toList());</span><br><span class="line">    <span class="comment">// limit：限制从流中获得前n个数据</span></span><br><span class="line">    List&lt;Integer&gt; collect = Stream.iterate(<span class="number">1</span>, x -&gt; x + <span class="number">2</span>).limit(<span class="number">10</span>).collect(Collectors.toList());</span><br><span class="line">    <span class="comment">// skip：跳过前n个数据</span></span><br><span class="line">    List&lt;Integer&gt; collect2 = Stream.iterate(<span class="number">1</span>, x -&gt; x + <span class="number">2</span>).skip(<span class="number">1</span>).limit(<span class="number">5</span>).collect(Collectors.toList());</span><br><span class="line">    System.out.println(<span class="string">&quot;流合并：&quot;</span> + newList);</span><br><span class="line">    System.out.println(<span class="string">&quot;limit：&quot;</span> + collect);</span><br><span class="line">    System.out.println(<span class="string">&quot;skip：&quot;</span> + collect2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">流合并：[a, b, c, d, e, f, g]</span><br><span class="line">limit：[1, 3, 5, 7, 9, 11, 13, 15, 17, 19]</span><br><span class="line">skip：[3, 5, 7, 9, 11]</span><br></pre></td></tr></table></figure>
+
+<h3 id="分页操作"><a href="#分页操作" class="headerlink" title="分页操作"></a>分页操作</h3><p>stream api 的强大之处还不仅仅是对集合进行各种组合操作，还支持分页操作。</p>
+<p>例如，将如下的数组从小到大进行排序，排序完成之后，从第1行开始，查询10条数据出来，操作如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//需要查询的数据</span></span><br><span class="line">    List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">6</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>, <span class="number">60</span>, <span class="number">100</span>);</span><br><span class="line">    List&lt;Integer&gt; dataList = numbers.stream().sorted(Integer::compareTo).skip(<span class="number">0</span>).limit(<span class="number">10</span>).collect(Collectors.toList());</span><br><span class="line">    System.out.println(dataList.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2, 2, 3, 3, 3, 5, 6, 7, 10, 20]</span><br></pre></td></tr></table></figure>
+
+<h3 id="并行操作"><a href="#并行操作" class="headerlink" title="并行操作"></a>并行操作</h3><p>所谓并行，指的是多个任务在同一时间点发生，并由不同的cpu进行处理，不互相抢占资源；而并发，指的是多个任务在同一时间点内同时发生了，但由同一个cpu进行处理，互相抢占资源。</p>
+<p>stream api 的并行操作和串行操作，只有一个方法区别，其他都一样，例如下面我们使用parallelStream来输出空字符串的数量：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; strings = Arrays.asList(<span class="string">&quot;abc&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;bc&quot;</span>, <span class="string">&quot;efg&quot;</span>, <span class="string">&quot;abcd&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;jkl&quot;</span>);</span><br><span class="line">    <span class="comment">// 采用并行计算方法，获取空字符串的数量</span></span><br><span class="line">    <span class="keyword">long</span> count = strings.parallelStream().filter(String::isEmpty).count();</span><br><span class="line">    System.out.println(count);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>在实际使用的时候，<code>并行操作</code>不一定比<code>串行操作</code>快！对于简单操作，数量非常大，同时服务器是多核的话，建议使用Stream并行！反之，采用串行操作更可靠！</strong></p>
+<h3 id="集合转Map操作"><a href="#集合转Map操作" class="headerlink" title="集合转Map操作"></a>集合转Map操作</h3><p>在实际的开发过程中，还有一个使用最频繁的操作就是，将集合元素中某个主键字段作为key，元素作为value，来实现集合转map的需求，这种需求在数据组装方面使用的非常多。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    List&lt;Person&gt; personList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Tom&quot;</span>,<span class="number">7000</span>,<span class="number">25</span>,<span class="string">&quot;male&quot;</span>,<span class="string">&quot;安徽&quot;</span>));</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Jack&quot;</span>,<span class="number">8000</span>,<span class="number">30</span>,<span class="string">&quot;female&quot;</span>,<span class="string">&quot;北京&quot;</span>));</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Lucy&quot;</span>,<span class="number">9000</span>,<span class="number">40</span>,<span class="string">&quot;male&quot;</span>,<span class="string">&quot;上海&quot;</span>));</span><br><span class="line">    personList.add(<span class="keyword">new</span> Person(<span class="string">&quot;Airs&quot;</span>,<span class="number">10000</span>,<span class="number">40</span>,<span class="string">&quot;female&quot;</span>,<span class="string">&quot;深圳&quot;</span>));</span><br><span class="line">    Map&lt;Integer, Person&gt; collect = personList.stream().collect(Collectors.toMap(Person::getAge, v -&gt; v, (k1, k2) -&gt; k1));</span><br><span class="line">    System.out.println(collect);</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;40=Person&#123;name=&#x27;Lucy&#x27;, salary=9000, age=40, sex=&#x27;male&#x27;, area=&#x27;上海&#x27;&#125;, 25=Person&#123;name=&#x27;Tom&#x27;, salary=7000, age=25, sex=&#x27;male&#x27;, area=&#x27;安徽&#x27;&#125;, 30=Person&#123;name=&#x27;Jack&#x27;, salary=8000, age=30, sex=&#x27;female&#x27;, area=&#x27;北京&#x27;&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>打开<code>Collectors.toMap</code>方法源码，一起来看看。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T, K, U&gt;</span><br><span class="line">    Collector&lt;T, ?, Map&lt;K,U&gt;&gt; toMap(Function&lt;? <span class="keyword">super</span> T, ? extends K&gt; keyMapper,</span><br><span class="line">                                    Function&lt;? <span class="keyword">super</span> T, ? extends U&gt; valueMapper,</span><br><span class="line">                                    BinaryOperator&lt;U&gt; mergeFunction) &#123;</span><br><span class="line">    <span class="keyword">return</span> toMap(keyMapper, valueMapper, mergeFunction, HashMap::<span class="keyword">new</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从参数表可以看出：</p>
+<ul>
+<li>第一个参数：表示 key</li>
+<li>第二个参数：表示 value</li>
+<li>第三个参数：表示某种规则</li>
+</ul>
+<p>上文中的<code>Collectors.toMap(Person::getAge, v -&gt; v, (k1,k2) -&gt; k1)</code>，表达的意思就是将<code>age</code>的内容作为<code>key</code>，<code>v -&gt; v</code>是表示将元素<code>person</code>作为<code>value</code>，其中<code>(k1,k2) -&gt; k1</code>表示如果存在相同的<code>key</code>，将第一个匹配的元素作为内容，第二个舍弃！</p>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6980135669368619045">https://juejin.cn/post/6980135669368619045</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/cksecf6ld000tx4ug9w2agz2l/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java基础—1.发展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/cksecf6kx0001x4ugckled2t2/">发展历程</a>
+    </h1>
+  
+
+        
+        <a href="/year/cksecf6kx0001x4ugckled2t2/" class="archive-article-date">
+  	<time datetime="2021-07-12T07:17:29.633Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-下载nacos"><a href="#1-下载nacos" class="headerlink" title="1.下载nacos"></a>1.下载nacos</h2><p><a target="_blank" rel="noopener" href="https://github.com/alibaba/nacos/releases">https://github.com/alibaba/nacos/releases</a></p>
+<p>或者</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/alibaba/nacos/releases/download/1.3.2/nacos-server-1.3.2.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-解压安装包"><a href="#2-解压安装包" class="headerlink" title="2.解压安装包"></a>2.解压安装包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nacos-server-1.3.2.tar.gz</span><br><span class="line">mv nacos /usr/local/</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-配置启动脚本"><a href="#3-配置启动脚本" class="headerlink" title="3.配置启动脚本"></a>3.配置启动脚本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd ./nacos/bin/</span><br><span class="line">vim startup.sh</span><br><span class="line"><span class="meta">#</span><span class="bash">把jdk换成绝对路径，不然systemctl找不到java环境</span></span><br><span class="line">[ ! -e &quot;$JAVA_HOME/bin/java&quot; ] &amp;&amp; JAVA_HOME=/usr/local/jdk1.8</span><br><span class="line"><span class="meta">#</span><span class="bash">[ ! -e <span class="string">&quot;<span class="variable">$JAVA_HOME</span>/bin/java&quot;</span> ] &amp;&amp; JAVA_HOME=/usr/java</span></span><br><span class="line"><span class="meta">#</span><span class="bash">[ ! -e <span class="string">&quot;<span class="variable">$JAVA_HOME</span>/bin/java&quot;</span> ] &amp;&amp; JAVA_HOME=/opt/taobao/java</span></span><br><span class="line"><span class="meta">#</span><span class="bash">[ ! -e <span class="string">&quot;<span class="variable">$JAVA_HOME</span>/bin/java&quot;</span> ] &amp;&amp; <span class="built_in">unset</span> JAVA_HOME</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /lib/systemd/system/nacos.service</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=nacos</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">ExecStart=/usr/local/nacos/bin/startup.sh -m standalone</span><br><span class="line">ExecReload=/usr/local/nacos/bin/shutdown.sh</span><br><span class="line">ExecStop=/usr/local/nacos/bin/shutdown.sh</span><br><span class="line">PrivateTmp=true</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>保存后执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl enable nacos.service</span><br><span class="line">systemctl start nacos.service</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-访问nacos"><a href="#4-访问nacos" class="headerlink" title="4.访问nacos"></a>4.访问nacos</h2><p><a target="_blank" rel="noopener" href="http://服务器ip:8848/nacos/">http://服务器IP:8848/nacos/</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用户名默认：nacos</span><br><span class="line">密码：nacos</span><br><span class="line">默认密码需尽快重置密码</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-数据持续化"><a href="#5-数据持续化" class="headerlink" title="5.数据持续化"></a>5.数据持续化</h2><ul>
+<li><strong>初始化数据库</strong></li>
+</ul>
+<p>目前Nacos仅支持<code>Mysql</code>数据库，且版本要求：<code>5.6.5+</code></p>
+<p>Nacos的数据库脚本文件在我们下载Nacos-server时的压缩包中就有</p>
+<p>进入<code>nacos\conf</code>目录，初始化文件：<code>nacos-mysql.sql</code></p>
+<p>此处我创建一个名为 <code>nacos_config</code> 的数据库，然后执行初始化脚本</p>
+<ul>
+<li><strong>修改配置文件</strong></li>
+</ul>
+<p>这里是需要修改Nacos-server的配置文件</p>
+<p>Nacos-server其实就是一个Java工程或者说是一个Springboot项目，他的配置文件在<code>nacos\conf</code>目录下，名为 <code>application.properties</code>，在文件底部添加数据源配置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.platform=mysql</span><br><span class="line"></span><br><span class="line">db.num=1</span><br><span class="line">db.url.0=jdbc:mysql://127.0.0.1:3306/nacos_config?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true</span><br><span class="line">db.user=root</span><br><span class="line">db.password=123456</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43846510/article/details/106078873">https://blog.csdn.net/weixin_43846510/article/details/106078873</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/larscheng/p/11422909.html">https://www.cnblogs.com/larscheng/p/11422909.html</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/cksecf6kx0001x4ugckled2t2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Centos开放及查看端口端口设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -141,12 +581,12 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/year/ckr08c5rc0000lougc5g725o2/">Centos开放及查看端口端口设置</a>
+      <a class="article-title" href="/year/cksecf6ks0000x4ug5ce419x0/">Centos开放及查看端口端口设置</a>
     </h1>
   
 
         
-        <a href="/year/ckr08c5rc0000lougc5g725o2/" class="archive-article-date">
+        <a href="/year/cksecf6ks0000x4ug5ce419x0/" class="archive-article-date">
   	<time datetime="2021-07-12T06:10:32.969Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
 </a>
         
@@ -205,7 +645,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/year/ckr08c5rc0000lougc5g725o2/">展开全文 >></a>
+          <a class="article-more-a" href="/year/cksecf6ks0000x4ug5ce419x0/">展开全文 >></a>
         </p>
       
 
@@ -235,19 +675,19 @@
 
 
   
-    <article id="post-Linux—7.redis安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux—7.安装redis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/year/ckr08c5rq000dlouggopa08e2/">Linux安装redis</a>
+      <a class="article-title" href="/year/cksecf6l7000fx4ug2ky53jcb/">Linux安装redis</a>
     </h1>
   
 
         
-        <a href="/year/ckr08c5rq000dlouggopa08e2/" class="archive-article-date">
+        <a href="/year/cksecf6l7000fx4ug2ky53jcb/" class="archive-article-date">
   	<time datetime="2021-07-12T06:10:23.795Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
 </a>
         
@@ -263,7 +703,7 @@
 
 <p>说明：架构森林是一个专注架构的博客，地址：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/architectforest">https://www.cnblogs.com/architectforest</a></p>
 <p>​     对应的源码可以访问这里获取： <a target="_blank" rel="noopener" href="https://github.com/liuhongdi/">https://github.com/liuhongdi/</a></p>
-<p> 说明：作者:刘宏缔 邮箱: <a href="mailto:&#x33;&#55;&#49;&#x31;&#x32;&#53;&#x33;&#x30;&#x37;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#x6d;">&#x33;&#55;&#49;&#x31;&#x32;&#53;&#x33;&#x30;&#x37;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#x6d;</a></p>
+<p> 说明：作者:刘宏缔 邮箱: <a href="mailto:&#x33;&#x37;&#49;&#49;&#x32;&#x35;&#51;&#48;&#x37;&#64;&#113;&#113;&#46;&#x63;&#111;&#109;">&#x33;&#x37;&#49;&#49;&#x32;&#x35;&#51;&#48;&#x37;&#64;&#113;&#113;&#46;&#x63;&#111;&#109;</a></p>
 <p>二，解压：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost source]# tar -xzvf redis-5.0.7.tar.gz </span><br></pre></td></tr></table></figure>
 
@@ -357,7 +797,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/year/ckr08c5rq000dlouggopa08e2/">展开全文 >></a>
+          <a class="article-more-a" href="/year/cksecf6l7000fx4ug2ky53jcb/">展开全文 >></a>
         </p>
       
 
@@ -394,12 +834,12 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/year/ckr08c5rp000aloug68qsbsmk/">安装mysql</a>
+      <a class="article-title" href="/year/cksecf6l6000dx4ugbqo18oo5/">安装mysql</a>
     </h1>
   
 
         
-        <a href="/year/ckr08c5rp000aloug68qsbsmk/" class="archive-article-date">
+        <a href="/year/cksecf6l6000dx4ugbqo18oo5/" class="archive-article-date">
   	<time datetime="2021-07-12T06:10:23.794Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
 </a>
         
@@ -503,7 +943,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/year/ckr08c5rp000aloug68qsbsmk/">展开全文 >></a>
+          <a class="article-more-a" href="/year/cksecf6l6000dx4ugbqo18oo5/">展开全文 >></a>
         </p>
       
 
@@ -540,12 +980,12 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/year/ckr08c5ro0008loug46ag5c0t/">Linux安装RabbitMQ</a>
+      <a class="article-title" href="/year/cksecf6l30008x4ug4luqhjzl/">Linux安装RabbitMQ</a>
     </h1>
   
 
         
-        <a href="/year/ckr08c5ro0008loug46ag5c0t/" class="archive-article-date">
+        <a href="/year/cksecf6l30008x4ug4luqhjzl/" class="archive-article-date">
   	<time datetime="2021-07-12T06:10:23.792Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
 </a>
         
@@ -729,7 +1169,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/year/ckr08c5ro0008loug46ag5c0t/">展开全文 >></a>
+          <a class="article-more-a" href="/year/cksecf6l30008x4ug4luqhjzl/">展开全文 >></a>
         </p>
       
 
@@ -759,19 +1199,19 @@
 
 
   
-    <article id="post-Linux—4.下载及安装nginx过程记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux—4.安装nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/year/ckr08c5rl0004loug9ipxbcx2/">Linux下载及安装nginx过程记录</a>
+      <a class="article-title" href="/year/cksecf6l4000ax4ugc15e5d2o/">Linux下载及安装nginx过程记录</a>
     </h1>
   
 
         
-        <a href="/year/ckr08c5rl0004loug9ipxbcx2/" class="archive-article-date">
+        <a href="/year/cksecf6l4000ax4ugc15e5d2o/" class="archive-article-date">
   	<time datetime="2021-07-12T06:10:23.790Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
 </a>
         
@@ -850,7 +1290,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/year/ckr08c5rl0004loug9ipxbcx2/">展开全文 >></a>
+          <a class="article-more-a" href="/year/cksecf6l4000ax4ugc15e5d2o/">展开全文 >></a>
         </p>
       
 
@@ -887,12 +1327,12 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/year/ckr08c5rm0005lougaouk9jk7/">Linux安装c++编译环境</a>
+      <a class="article-title" href="/year/cksecf6l20005x4ug7ur33hxe/">Linux安装c++编译环境</a>
     </h1>
   
 
         
-        <a href="/year/ckr08c5rm0005lougaouk9jk7/" class="archive-article-date">
+        <a href="/year/cksecf6l20005x4ug7ur33hxe/" class="archive-article-date">
   	<time datetime="2021-07-12T06:10:23.789Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
 </a>
         
@@ -937,7 +1377,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/year/ckr08c5rm0005lougaouk9jk7/">展开全文 >></a>
+          <a class="article-more-a" href="/year/cksecf6l20005x4ug7ur33hxe/">展开全文 >></a>
         </p>
       
 
@@ -974,12 +1414,12 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/year/ckr08c5rk0003loug0oi4eidi/">安装JDK</a>
+      <a class="article-title" href="/year/cksecf6l10004x4uggombgdcn/">安装JDK</a>
     </h1>
   
 
         
-        <a href="/year/ckr08c5rk0003loug0oi4eidi/" class="archive-article-date">
+        <a href="/year/cksecf6l10004x4uggombgdcn/" class="archive-article-date">
   	<time datetime="2021-07-12T06:10:23.786Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
 </a>
         
@@ -1042,7 +1482,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/year/ckr08c5rk0003loug0oi4eidi/">展开全文 >></a>
+          <a class="article-more-a" href="/year/cksecf6l10004x4uggombgdcn/">展开全文 >></a>
         </p>
       
 
@@ -1072,365 +1512,10 @@
 
 
   
-    <article id="post-Linux—8.安装nacos" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/ckr08c5rq000flougejkfbxon/">Linux安装nacos</a>
-    </h1>
-  
-
-        
-        <a href="/year/ckr08c5rq000flougejkfbxon/" class="archive-article-date">
-  	<time datetime="2021-07-12T06:10:23.784Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-下载nacos"><a href="#1-下载nacos" class="headerlink" title="1.下载nacos"></a>1.下载nacos</h2><p><a target="_blank" rel="noopener" href="https://github.com/alibaba/nacos/releases">https://github.com/alibaba/nacos/releases</a></p>
-<p>或者</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/alibaba/nacos/releases/download/1.3.2/nacos-server-1.3.2.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-解压安装包"><a href="#2-解压安装包" class="headerlink" title="2.解压安装包"></a>2.解压安装包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nacos-server-1.3.2.tar.gz</span><br><span class="line">mv nacos /usr/local/</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-配置启动脚本"><a href="#3-配置启动脚本" class="headerlink" title="3.配置启动脚本"></a>3.配置启动脚本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd ./nacos/bin/</span><br><span class="line">vim startup.sh</span><br><span class="line"><span class="meta">#</span><span class="bash">把jdk换成绝对路径，不然systemctl找不到java环境</span></span><br><span class="line">[ ! -e &quot;$JAVA_HOME/bin/java&quot; ] &amp;&amp; JAVA_HOME=/usr/local/jdk1.8</span><br><span class="line"><span class="meta">#</span><span class="bash">[ ! -e <span class="string">&quot;<span class="variable">$JAVA_HOME</span>/bin/java&quot;</span> ] &amp;&amp; JAVA_HOME=/usr/java</span></span><br><span class="line"><span class="meta">#</span><span class="bash">[ ! -e <span class="string">&quot;<span class="variable">$JAVA_HOME</span>/bin/java&quot;</span> ] &amp;&amp; JAVA_HOME=/opt/taobao/java</span></span><br><span class="line"><span class="meta">#</span><span class="bash">[ ! -e <span class="string">&quot;<span class="variable">$JAVA_HOME</span>/bin/java&quot;</span> ] &amp;&amp; <span class="built_in">unset</span> JAVA_HOME</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /lib/systemd/system/nacos.service</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=nacos</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">ExecStart=/usr/local/nacos/bin/startup.sh -m standalone</span><br><span class="line">ExecReload=/usr/local/nacos/bin/shutdown.sh</span><br><span class="line">ExecStop=/usr/local/nacos/bin/shutdown.sh</span><br><span class="line">PrivateTmp=true</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-
-<p>保存后执行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl enable nacos.service</span><br><span class="line">systemctl start nacos.service</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-访问nacos"><a href="#4-访问nacos" class="headerlink" title="4.访问nacos"></a>4.访问nacos</h2><p><a target="_blank" rel="noopener" href="http://服务器ip:8848/nacos/">http://服务器IP:8848/nacos/</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用户名默认：nacos</span><br><span class="line">密码：nacos</span><br><span class="line">默认密码需尽快重置密码</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-数据持续化"><a href="#5-数据持续化" class="headerlink" title="5.数据持续化"></a>5.数据持续化</h2><ul>
-<li><strong>初始化数据库</strong></li>
-</ul>
-<p>目前Nacos仅支持<code>Mysql</code>数据库，且版本要求：<code>5.6.5+</code></p>
-<p>Nacos的数据库脚本文件在我们下载Nacos-server时的压缩包中就有</p>
-<p>进入<code>nacos\conf</code>目录，初始化文件：<code>nacos-mysql.sql</code></p>
-<p>此处我创建一个名为 <code>nacos_config</code> 的数据库，然后执行初始化脚本</p>
-<ul>
-<li><strong>修改配置文件</strong></li>
-</ul>
-<p>这里是需要修改Nacos-server的配置文件</p>
-<p>Nacos-server其实就是一个Java工程或者说是一个Springboot项目，他的配置文件在<code>nacos\conf</code>目录下，名为 <code>application.properties</code>，在文件底部添加数据源配置：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.platform=mysql</span><br><span class="line"></span><br><span class="line">db.num=1</span><br><span class="line">db.url.0=jdbc:mysql://127.0.0.1:3306/nacos_config?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true</span><br><span class="line">db.user=root</span><br><span class="line">db.password=123456</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43846510/article/details/106078873">https://blog.csdn.net/weixin_43846510/article/details/106078873</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/larscheng/p/11422909.html">https://www.cnblogs.com/larscheng/p/11422909.html</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/ckr08c5rq000flougejkfbxon/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hexo+GithubPages创建自己的blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/ckr08c5rs000hloug9d9u6y2z/">hexo+GithubPages创建自己的blog</a>
-    </h1>
-  
-
-        
-        <a href="/year/ckr08c5rs000hloug9d9u6y2z/" class="archive-article-date">
-  	<time datetime="2021-07-12T05:38:43.635Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="搭建个人博客的步骤"><a href="#搭建个人博客的步骤" class="headerlink" title="搭建个人博客的步骤"></a>搭建个人博客的步骤</h2><h3 id="一、-GitHub创建个人仓库"><a href="#一、-GitHub创建个人仓库" class="headerlink" title="一、 GitHub创建个人仓库"></a>一、 GitHub创建个人仓库</h3><p>登录到GitHub,如果没有GitHub帐号，使用某个邮箱注册一个 GitHub 帐号：点击个人页面中的 New repository 创建新仓库。</p>
-<p>仓库的名字设定为：自己注册时的用户名 +.github.io</p>
-<p>例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">我的用户名为：Bitnut</span><br><span class="line">那么我的仓库名字就是：Bitnut.github.io</span><br></pre></td></tr></table></figure>
-
-<p>可见这个仓库是每个账号只能创建一个的<em>特殊类型仓库</em></p>
-<p>至此，你就已经相当于给自己的博客利用 github 的服务器搭了一个后台。很简单对不对~~</p>
-<p>注意点：</p>
-<ol>
-<li>注册的邮箱一定要验证，否则不会成功；</li>
-<li>仓库名字必须是：username.github.io，其中username是你的用户名；</li>
-<li>仓库创建成功不会立即生效，需要过一段时间，大概10-30分钟，或者更久，我的等了半个小时才生效；</li>
-</ol>
-<h3 id="二、-安装Node-js"><a href="#二、-安装Node-js" class="headerlink" title="二、 安装Node.js"></a>二、 安装Node.js</h3><p>由于 Hexo 基于 Node.js 因此我们到官网上下载一下 node.js。</p>
-<p>Node.js下载地址：<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">Download | Node.js</a><br>下载安装包，安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入 <code>node -v</code> 检测npm是否安装成功。</p>
-<ul>
-<li>如果 git bash 里面报错，到环境变量里面看看有没有 nodejs。没有的需要把nodejs的地址添加一下。如果已经有了，重启电脑应该就 OK。</li>
-</ul>
-<p>至此，安装Hexo的环境全部配置完成。</p>
-<p>三、 安装Hexo</p>
-<p>Hexo就是我们的个人博客网站的框架，这里需要自己在电脑常里创建一个文件夹。</p>
-<p><em>注意不要在这个文件夹下面试用 Git 创建仓库，因为后面安装的主题内可能会带有 git 仓库，这样会导致包管理的混乱。</em></p>
-<p>可以随意命名，这里命名为 Blog，Hexo 框架和以后我们自己发布的网页都在保存在这个本地文件夹中。创建好后，不需要进入文件夹中，在文件夹的父目录直接唤出 Git Bash。</p>
-<p>使用npm命令安装Hexo，输入：</p>
-<blockquote>
-<p>npm install -g hexo-cli</p>
-</blockquote>
-<p>初始化我们的博客，输入：</p>
-<blockquote>
-<p>hexo init Blog</p>
-</blockquote>
-<p>注意，这里的命令都是作用在刚刚创建的Blog文件夹中。进入到文件夹中<br>查看一下我们的目录结构：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/7277397-a916f2c6b2d400e7.png" alt="img"></p>
-<p>为了检测我们的网站雏形，分别按顺序输入以下三条命令：</p>
-<blockquote>
-<p>hexo new test_my_site #创建一篇新文章<br>hexo g #生成文件<br>hexo s #本地 server 部署</p>
-</blockquote>
-<p>这样我们在本地成功部署了我们的博客<br>打开浏览器输入地址：</p>
-<p>localhost:4000</p>
-<h3 id="四、-常用的Hexo命令"><a href="#四、-常用的Hexo命令" class="headerlink" title="四、 常用的Hexo命令"></a>四、 常用的Hexo命令</h3><blockquote>
-<p>npm install hexo -g #安装Hexo<br>npm update hexo -g #升级<br>hexo init #初始化博客</p>
-</blockquote>
-<p>命令简写</p>
-<blockquote>
-<p>hexo n “我的博客” == hexo new “我的博客” #新建文章<br>hexo g == hexo generate #生成<br>hexo s == hexo server #启动服务预览<br>hexo d == hexo deploy #部署</p>
-</blockquote>
-<blockquote>
-<p>hexo server #Hexo会监视文件变动并自动更新，无须重启服务器<br>hexo server -s #静态模式<br>hexo server -p 5000 #更改端口<br>hexo server -i 192.168.1.1 #自定义 IP<br>hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令</p>
-</blockquote>
-<p>刚刚的三个命令依次是新建一篇博客文章、生成网页、在本地预览的操作。</p>
-<h3 id="五、-把博客的更新部署到-Github-上"><a href="#五、-把博客的更新部署到-Github-上" class="headerlink" title="五、 把博客的更新部署到 Github 上"></a>五、 把博客的更新部署到 Github 上</h3><p>上面只是在本地预览，接下来要做的就是就是推送更新，也就是发布网站，让我们的网站可以被更多的人访问。在设置之前，</p>
-<p>需要区分一下两个概念：</p>
-<ul>
-<li>在 Blog 根目录里的_config.yml文件称为站点配置文件</li>
-<li>进入根目录里的themes文件夹，里面也有个_config.yml文件，这个称为主题配置文件</li>
-</ul>
-<p>下一步将我们的Hexo与GitHub关联起来，打开站点的配置文件_config.yml，翻到最后修改为：</p>
-<blockquote>
-<p>deploy:<br>type: git<br>repo: 这里填入你之前在GitHub上创建仓库的完整路径<br>branch: master</p>
-</blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/7277397-5f03a6394dc2d475.png" alt="img"></p>
-<p>保存站点配置文件。</p>
-<p>以上的所有操作其实是在给 <code>hexo d</code> 这个命令做相应的配置，让 hexo 知道你要把 blog 部署在哪个位置，很显然，我们部署在我们GitHub的仓库里。最后安装Git部署插件，输入命令：</p>
-<blockquote>
-<p>npm install hexo-deployer-git –save</p>
-</blockquote>
-<p>完成后，我们分别输入三条命令：</p>
-<blockquote>
-<p>hexo clean<br>hexo g<br>hexo d</p>
-</blockquote>
-<p>第三条的 hexo d 就是部署网站命令，d是deploy的缩写。完成后，打开浏览器，在地址栏输入你的放置个人网站的仓库路径，即 <code>http://xxxx.github.io</code> 。其中的 xxxx 就是的GitHub用户名：</p>
-<p>你就会发现你的博客已经上线了，可以在网络上被访问了。</p>
-<ul>
-<li>注意：如果你前面操作的很快，那么你到这一步有可能没法访问，因为github那边给你的网站部署需要花费一些时间，大概需要最长半个小时的时间。</li>
-</ul>
-<h3 id="六、更换主题"><a href="#六、更换主题" class="headerlink" title="六、更换主题"></a>六、更换主题</h3><p>默认主题:neutral_face:emmmm，不是很好看。所以我们进行到了至关重要的一步！要知道，帅。是一辈子的事情~~~颜值不够看，看ni:horse:呢对吧？</p>
-<p>个人最欣赏的主题：<a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia">hexo-theme-yilia</a><br>这个主题兼顾了颜值和效率，同时在手机端可以有非常好的体验，因此我选择了它。</p>
-<p>当然你也可以选择其他主题。主题传送门：<a target="_blank" rel="noopener" href="https://hexo.io/themes/">Themes</a> 我自己使用的是 yilia 主题，可以在blog目录中的themes文件夹中查看你自己主题是什么。</p>
-<p>首先下载这个主题：<br>在根目录唤出 Git Bash,</p>
-<blockquote>
-<p>git clone <a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</p>
-</blockquote>
-<p>这是将 yilia 主题下载到 Blog 目录的 themes 主题下的 yilia 文件夹中。打开站点的_config.yml配置文件，将里面的 <code>theme: landscape</code> 改为 <code>theme: yilia</code>，然后重新执行 <code>hexo g</code> 来重新生成。</p>
-<p>如果出现一些莫名其妙的问题，可以先执行 <code>hexo clean</code> ，可以清理 public 文件夹里面的内容。然后重新生成和发布即可。</p>
-<h3 id="七、-让博客网址使用全英文路径"><a href="#七、-让博客网址使用全英文路径" class="headerlink" title="七、 让博客网址使用全英文路径"></a>七、 让博客网址使用全英文路径</h3><p>上面的微信分享二维码功能完成之后，手机扫码出来却不能访问，为什么呢？？</p>
-<p><em>原因在于你的文章可能使用了中文命名，而 hexo 默认使用了文章标题作为网址</em></p>
-<p>解决方案：修改 permalink 变量</p>
-<p>在博客根目录的配置文件（_config.yml）中这样修改：</p>
-<blockquote>
-<p>permalink: :year/:month/:day/:title # 这是原配置<br>permalink: :year/:id/ # 替换为此新配置</p>
-</blockquote>
-<p>并且在.\scaffolds\post.md中修改为：</p>
-<ul>
-<li>（注意新增了一个id:）</li>
-</ul>
-<blockquote>
-<p>title: hexo+GithubPages创建自己的blog<br>id: 1626068323635<br>date: 1626068323635<br>tags:</p>
-</blockquote>
-<p>这里我的 id 初始化的时候是日期，包含年月日时分秒。为了美观和便于识别，我在上传的时候会修改这个 id 使他保证和其他文章不冲突。</p>
-<p>我的做法是使用创建日期中的月+日+时+分+秒来定义一个id，比如<code>月日-时分秒</code> 。</p>
-<p>参考链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lanqingzhou/p/13477459.html">https://www.cnblogs.com/lanqingzhou/p/13477459.html</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/ckr08c5rs000hloug9d9u6y2z/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux—1.本地文件上传服务器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/ckr08c5rh0001loug2rdz187m/">本地文件上传Linux服务器</a>
-    </h1>
-  
-
-        
-        <a href="/year/ckr08c5rh0001loug2rdz187m/" class="archive-article-date">
-  	<time datetime="2021-07-12T05:17:37.740Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、输入rz命令，看是否安装lrzsz，如果没有安装执行 yum -y install lrzsz </p>
-<p><img src="https://images2018.cnblogs.com/blog/1246428/201803/1246428-20180324191040556-1128737734.png" alt="img"></p>
-<p>2、安装成功后，输入rpm命令确认是否正确安装</p>
-<p><img src="https://images2018.cnblogs.com/blog/1246428/201803/1246428-20180324191512252-1577683426.png" alt="img"></p>
-<p>3、使用rz -y命令进行文件上传</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/ckr08c5rh0001loug2rdz187m/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
@@ -1528,7 +1613,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
             
             <div class="clearfix"></div>
