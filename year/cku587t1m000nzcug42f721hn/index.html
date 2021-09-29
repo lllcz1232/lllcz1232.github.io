@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Linux安装c++编译环境 | Hexo</title>
+  <title>sql递归查询上级 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="方式一：yum方式安装 如果有联网环境，或者配置好的yum源仓库，可以直接执行命令： 1yum install gcc-c++  期间会有提示输入y回车 1Is this ok [y&#x2F;N]:y    方式二：rpm包离线安装 解压镜像CentOS-7-x86_64-DVD-1810.iso，进入到CentOS-7-x86_64-DVD-1810\Packages目录，这下面存储了很多rpm包。找到">
+  <meta name="description" content="12345678910SELECT csp.id, csp.permission_name, csp.code, csp.parent_idFROM ( 	SELECT 		@r AS _id, 		(SELECT @r :&#x3D; parent_id FROM crm_sys_permission WHERE code &#x3D; _id) AS parent_id, 		@l :&#x3D; @l + 1 AS lv">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux安装c++编译环境">
-<meta property="og:url" content="http://example.com/year/cksecf6l20005x4ug7ur33hxe/index.html">
+<meta property="og:title" content="sql递归查询上级">
+<meta property="og:url" content="http://example.com/year/cku587t1m000nzcug42f721hn/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="方式一：yum方式安装 如果有联网环境，或者配置好的yum源仓库，可以直接执行命令： 1yum install gcc-c++  期间会有提示输入y回车 1Is this ok [y&#x2F;N]:y    方式二：rpm包离线安装 解压镜像CentOS-7-x86_64-DVD-1810.iso，进入到CentOS-7-x86_64-DVD-1810\Packages目录，这下面存储了很多rpm包。找到">
+<meta property="og:description" content="12345678910SELECT csp.id, csp.permission_name, csp.code, csp.parent_idFROM ( 	SELECT 		@r AS _id, 		(SELECT @r :&#x3D; parent_id FROM crm_sys_permission WHERE code &#x3D; _id) AS parent_id, 		@l :&#x3D; @l + 1 AS lv">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-12T06:10:23.789Z">
-<meta property="article:modified_time" content="2021-07-12T06:07:52.852Z">
+<meta property="article:published_time" content="2021-08-06T06:11:52.748Z">
+<meta property="article:modified_time" content="2021-08-06T06:16:31.688Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="linux">
+<meta property="article:tag" content="sql">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -137,40 +137,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux—3.安装c++编译环境" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-sql递归查询上级" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Linux安装c++编译环境
+      sql递归查询上级
     </h1>
   
 
         
-        <a href="/year/cksecf6l20005x4ug7ur33hxe/" class="archive-article-date">
-  	<time datetime="2021-07-12T06:10:23.789Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
+        <a href="/year/cku587t1m000nzcug42f721hn/" class="archive-article-date">
+  	<time datetime="2021-08-06T06:11:52.748Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>方式一：yum方式安装</strong></p>
-<p>如果有联网环境，或者配置好的yum源仓库，可以直接执行命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc-c++</span><br></pre></td></tr></table></figure>
+        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SELECT csp.id, csp.permission_name, csp.code, csp.parent_id</span><br><span class="line">FROM ( </span><br><span class="line">	SELECT </span><br><span class="line">		@r AS _id, </span><br><span class="line">		(SELECT @r := parent_id FROM crm_sys_permission WHERE code = _id) AS parent_id, </span><br><span class="line">		@l := @l + 1 AS lvl </span><br><span class="line">	FROM (SELECT @r := 60024, @l := 0) vars, crm_sys_permission h </span><br><span class="line">	WHERE @r &lt;&gt; 0</span><br><span class="line">) sp </span><br><span class="line">JOIN crm_sys_permission csp ON sp._id = csp.code</span><br></pre></td></tr></table></figure>
 
-<p>期间会有提示输入y回车</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Is this ok [y/N]:y</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">DROP FUNCTION IF EXISTS fn_getPermissionParentNodes;</span><br><span class="line">CREATE  FUNCTION fn_getPermissionParentNodes (currentId INT) </span><br><span class="line">RETURNS VARCHAR (1000) </span><br><span class="line">BEGIN</span><br><span class="line">	DECLARE parentId VARCHAR (20);</span><br><span class="line">	DECLARE tempStr VARCHAR (1000) DEFAULT currentId;</span><br><span class="line">	WHILE currentId IS NOT NULL DO</span><br><span class="line">    SET parentId = (SELECT parent_id FROM crm_sys_permission WHERE code = currentId);</span><br><span class="line">		IF parentId IS NOT NULL THEN</span><br><span class="line">			SET tempStr = CONCAT(parentId, &#x27;,&#x27;, tempStr);</span><br><span class="line">			SET currentId = parentId;</span><br><span class="line">		ELSE </span><br><span class="line">			SET currentId = parentId;</span><br><span class="line">		END IF;</span><br><span class="line">	END WHILE;</span><br><span class="line">	RETURN tempStr;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
 
-
-
-<p><strong>方式二：rpm包离线安装</strong></p>
-<p>解压镜像CentOS-7-x86_64-DVD-1810.iso，进入到CentOS-7-x86_64-DVD-1810\Packages目录，这下面存储了很多rpm包。找到下面列出的rpm包，上传到CentOS机器任意位置。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">binutils-2.27-34.base.el7.x86_64.rpm</span><br><span class="line">cpp-4.8.5-36.el7.x86_64.rpm</span><br><span class="line">gcc-4.8.5-16.el7.x86_64.rpm</span><br><span class="line">gcc-c++-4.8.5-36.el7.x86_64.rpm</span><br><span class="line">glibc-2.17-260.el7.x86_64.rpm</span><br><span class="line">glibc-common-2.17-260.el7.x86_64.rpm</span><br><span class="line">glibc-devel-2.17-260.el7.x86_64.rpm</span><br><span class="line">glibc-headers-2.17-260.el7.x86_64.rpm</span><br><span class="line">kernel-headers-3.10.0-957.el7.x86_64.rpm</span><br><span class="line">libgcc-4.8.5-36.el7.x86_64.rpm</span><br><span class="line">libgomp-4.8.5-36.el7.x86_64.rpm</span><br><span class="line">libmpc-1.0.1-3.el7.x86_64.rpm</span><br><span class="line">libstdc++-devel-4.8.5-36.el7.x86_64.rpm</span><br><span class="line">mpfr-3.1.1-4.el7.x86_64.rpm</span><br><span class="line">zlib-1.2.7-18.el7.x86_64.rpm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>执行rpm包安装：rpm -Uvh ./*.rpm –nodeps –force</strong></p>
 
       
 
@@ -184,7 +174,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
         		</li>
       		
 		</ul>
@@ -240,7 +230,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/year/cksecf6l20005x4ug7ur33hxe/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/year/cku587t1m000nzcug42f721hn/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -254,18 +244,9 @@
   
 <nav id="article-nav">
   
-    <a href="/year/cksecf6l4000ax4ugc15e5d2o/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Linux下载及安装nginx过程记录
-        
-      </div>
-    </a>
   
-  
-    <a href="/year/cksecf6l10004x4uggombgdcn/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">安装JDK</div>
+    <a href="/year/cku587t1o000rzcughceshtfk/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Stream</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -395,15 +376,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
             
             <div class="clearfix"></div>

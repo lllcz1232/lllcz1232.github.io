@@ -6,26 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Linux安装RabbitMQ | Hexo</title>
+  <title>Linux安装redis | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="注：安装rabbitMq需按照请参见RabbitMQ Erlang Version Requirements选择erlang版本  1、安装erlang 运行一下命令，安装erlang所需要的依赖包  1yum install -y make gcc gcc-c++ m4 openssl openssl-devel ncurses-devel unixODBC unixODBC-devel jav">
+  <meta name="description" content="一，下载： ​    1，下载页面: ​    https:&#x2F;&#x2F;redis.io&#x2F; ​    2,下载 1[root@localhost source]# wget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-5.0.7.tar.gz  说明：架构森林是一个专注架构的博客，地址：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;architectforest ​">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux安装RabbitMQ">
-<meta property="og:url" content="http://example.com/year/cksecf6l30008x4ug4luqhjzl/index.html">
+<meta property="og:title" content="Linux安装redis">
+<meta property="og:url" content="http://example.com/year/cku587t1g000azcug01kd9a61/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="注：安装rabbitMq需按照请参见RabbitMQ Erlang Version Requirements选择erlang版本  1、安装erlang 运行一下命令，安装erlang所需要的依赖包  1yum install -y make gcc gcc-c++ m4 openssl openssl-devel ncurses-devel unixODBC unixODBC-devel jav">
+<meta property="og:description" content="一，下载： ​    1，下载页面: ​    https:&#x2F;&#x2F;redis.io&#x2F; ​    2,下载 1[root@localhost source]# wget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-5.0.7.tar.gz  说明：架构森林是一个专注架构的博客，地址：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;architectforest ​">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210701151219577.png">
-<meta property="og:image" content="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p263785.png">
-<meta property="og:image" content="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p39377.png">
-<meta property="og:image" content="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p39379.png">
-<meta property="og:image" content="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p263925.png">
-<meta property="article:published_time" content="2021-07-12T06:10:23.792Z">
-<meta property="article:modified_time" content="2021-07-12T06:08:43.836Z">
+<meta property="article:published_time" content="2021-07-12T06:10:23.795Z">
+<meta property="article:modified_time" content="2021-07-12T06:09:36.839Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210701151219577.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -143,180 +137,106 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux—5.安装RabbitMQ" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Linux—7.安装redis" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Linux安装RabbitMQ
+      Linux安装redis
     </h1>
   
 
         
-        <a href="/year/cksecf6l30008x4ug4luqhjzl/" class="archive-article-date">
-  	<time datetime="2021-07-12T06:10:23.792Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
+        <a href="/year/cku587t1g000azcug01kd9a61/" class="archive-article-date">
+  	<time datetime="2021-07-12T06:10:23.795Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>注：安装rabbitMq需按照请参见<a target="_blank" rel="noopener" href="https://www.rabbitmq.com/which-erlang.html">RabbitMQ Erlang Version Requirements</a>选择erlang版本</strong></p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210701151219577.png" alt="image-20210701151219577"></p>
-<h4 id="1、安装erlang"><a href="#1、安装erlang" class="headerlink" title="1、安装erlang"></a><strong>1、安装erlang</strong></h4><ol>
-<li>运行一下命令，安装erlang所需要的依赖包</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y make gcc gcc-c++ m4 openssl openssl-devel ncurses-devel unixODBC unixODBC-devel java java-devel</span><br></pre></td></tr></table></figure>
+        <p>一，下载：</p>
+<p>​    1，下载页面:</p>
+<p>​    <a target="_blank" rel="noopener" href="https://redis.io/">https://redis.io/</a></p>
+<p>​    2,下载</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost source]# wget http://download.redis.io/releases/redis-5.0.7.tar.gz</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>运行一下命令，下载erlang安装包</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://erlang.org/download/otp_src_21.1.tar.gz</span><br></pre></td></tr></table></figure>
+<p>说明：架构森林是一个专注架构的博客，地址：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/architectforest">https://www.cnblogs.com/architectforest</a></p>
+<p>​     对应的源码可以访问这里获取： <a target="_blank" rel="noopener" href="https://github.com/liuhongdi/">https://github.com/liuhongdi/</a></p>
+<p> 说明：作者:刘宏缔 邮箱: <a href="mailto:&#x33;&#x37;&#49;&#49;&#x32;&#53;&#51;&#x30;&#55;&#64;&#113;&#113;&#46;&#99;&#x6f;&#109;">&#x33;&#x37;&#49;&#49;&#x32;&#53;&#51;&#x30;&#55;&#64;&#113;&#113;&#46;&#99;&#x6f;&#109;</a></p>
+<p>二，解压：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost source]# tar -xzvf redis-5.0.7.tar.gz </span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>运行以下命令，解压erlang安装包。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf otp_src_21.1.tar.gz</span><br></pre></td></tr></table></figure>
+<p>三，准备编译</p>
+<p>1, 请在操作前确认gcc是否已安装，</p>
+<p>如未安装，可以执行这个命令安装：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost redis-5.0.7]# yum install gcc</span><br></pre></td></tr></table></figure>
 
-<ol start="4">
-<li>运行以下命令，进入erlang安装包的解压路径，并为erlang创建一个新的目录。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd otp_src_21.1</span><br><span class="line">mkdir -p /usr/local/erlang</span><br></pre></td></tr></table></figure>
+<p>2,请在操作前确认tcl是否已安装</p>
+<p>如未安装，可以执行这个命令安装：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost redis-5.0.7]# yum install tcl</span><br></pre></td></tr></table></figure>
 
-<ol start="5">
-<li>依次运行以下命令，编译并安装erlang。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/erlang</span><br></pre></td></tr></table></figure>
+<p>四，编译：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost source]# cd redis-5.0.7/</span><br><span class="line"></span><br><span class="line">[root@localhost redis-5.0.7]# make MALLOC=libc</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p>说明：make 后加 MALLOC的参数的原因：</p>
+<p>​     避免提示找不到 jemalloc/jemalloc.h</p>
+<p>五，测试编译：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost redis-5.0.7]# make test</span><br></pre></td></tr></table></figure>
 
-<ol start="6">
-<li>安装完成后，运行以下命令，为erlang配置环境变量。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &#x27;export PATH=$PATH:/usr/local/erlang/bin&#x27; &gt;&gt; /etc/profile</span><br></pre></td></tr></table></figure>
+<p>如果看到以下字样：表示无错误:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\o/ All tests passed without errors!</span><br></pre></td></tr></table></figure>
 
-<ol start="7">
-<li>运行以下命令，使环境变量立即生效。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
 
-<ol start="8">
-<li>运行以下命令，返回系统的/root目录，然后查看erlang版本，确认是否安装成功。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd</span><br><span class="line">erl -version</span><br></pre></td></tr></table></figure>
 
-<p>返回如下信息表示erlang已成功安装。<a target="_blank" rel="noopener" href="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p263785.png"><img src="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p263785.png" alt="erl version"></a></p>
-<h4 id="2、下载并安装RabbitMQ"><a href="#2、下载并安装RabbitMQ" class="headerlink" title="2、下载并安装RabbitMQ"></a><strong>2、下载并安装RabbitMQ</strong></h4><p>RabbitMQ对Erlang的版本具有一定限制，更多信息，请参见<a target="_blank" rel="noopener" href="https://www.rabbitmq.com/which-erlang.html">RabbitMQ Erlang Version Requirements</a>。本示例使用的Erlang为21.1版本，因此选择下载RabbitMQ 3.7.8版本。</p>
-<ol>
-<li><p>运行以下命令，下载RabbitMQ安装包。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.7.8/rabbitmq-server-generic-unix-3.7.8.tar.xz</span><br></pre></td></tr></table></figure></li>
-<li><p>运行以下命令，解压RabbitMQ安装包。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf rabbitmq-server-generic-unix-3.7.8.tar.xz</span><br></pre></td></tr></table></figure></li>
-<li><p>解压完成后，运行以下命令，为RabbitMQ配置环境变量。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &#x27;export PATH=$PATH:/root/rabbitmq_server-3.7.8/sbin&#x27; &gt;&gt; /etc/profile</span><br></pre></td></tr></table></figure></li>
-<li><p>运行以下命令，使环境变量立即生效。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h4 id="3、配置RabbitMQ"><a href="#3、配置RabbitMQ" class="headerlink" title="3、配置RabbitMQ"></a><strong>3、配置RabbitMQ</strong></h4><ol>
-<li><p>运行以下命令，启动RabbitMQ并后台运行。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmq-server -detached</span><br></pre></td></tr></table></figure>
+<p>六，安装：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost redis-5.0.7]# mkdir /usr/local/soft/redis5</span><br><span class="line">[root@localhost redis-5.0.7]# cd /usr/local/soft/redis5/</span><br><span class="line">[root@localhost redis5]# mkdir bin</span><br><span class="line">[root@localhost redis5]# mkdir conf</span><br><span class="line">[root@localhost redis5]# cd bin/</span><br><span class="line">[root@localhost bin]# cp /usr/local/source/redis-5.0.7/src/redis-cli ./</span><br><span class="line">[root@localhost bin]# cp /usr/local/source/redis-5.0.7/src/redis-server ./</span><br><span class="line">[root@localhost bin]# cd ../conf/</span><br><span class="line">[root@localhost conf]# cp /usr/local/source/redis-5.0.7/redis.conf ./</span><br></pre></td></tr></table></figure>
 
-<p><strong>注意</strong> 该命令只在当前运行的系统环境下启动RabbitMQ，一旦服务器重启，RabbitMQ服务将不会自动启动。因此，建议您通过阿里云的云助手功能，设置RabbitMQ开机自启动。具体操作，请参见<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/53100.html#section-9ke-67a-pwt">通过云助手设置RabbitMQ开机自启动</a>。</p>
-</li>
-<li><p>运行以下命令，启动RabbitMQ监控插件。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmq-plugins enable rabbitmq_management</span><br></pre></td></tr></table></figure>
+<p>七，配置:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost conf]# vi redis.conf</span><br></pre></td></tr></table></figure>
 
-<p>如果您需要关闭RabbitMQ监控插件，可以运行<code>rabbitmq-plugins disable rabbitmq_management</code>命令。</p>
-</li>
-<li><p>为保证数据安全，建议您运行以下命令，删除默认用户。</p>
-<p>RabbitMQ默认的账号用户名和密码都是<code>guest</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl delete_user guest</span><br></pre></td></tr></table></figure></li>
-<li><p>创建RabbitMQ管理员用户。</p>
-<ol>
-<li><p>运行以下命令，创建一个新用户。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl add_user &lt;用户名&gt; &lt;密码&gt;</span><br></pre></td></tr></table></figure>
+<p>设置以下两个地方:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># daemonize no</span><br><span class="line">daemonize yes</span><br><span class="line"></span><br><span class="line"># maxmemory &lt;bytes&gt;</span><br><span class="line">maxmemory 128MB </span><br></pre></td></tr></table></figure>
 
-<p>其中，&lt;用户名&gt; 和 &lt;密码&gt; 为您自定义的信息。</p>
-</li>
-<li><p>运行以下命令，将创建的新用户设置为管理员。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl set_user_tags &lt;用户名&gt; administrator</span><br></pre></td></tr></table></figure></li>
-<li><p>运行以下命令，赋予新创建的用户所有权限。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl set_permissions -p / &lt;用户名&gt; &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><p>在本地主机中，使用浏览器访问<code>Linux实例的公网IP:15672</code>。</p>
-<p>显示如下页面，说明RabbitMQ安装成功。<a target="_blank" rel="noopener" href="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p39377.png"><img src="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p39377.png" alt="RabbitMQ登录页"></a></p>
-</li>
-<li><p>输入已创建的RabbitMQ管理员用户名和密码后，单击<strong>Login</strong>，进入RabbitMQ管理界面。</p>
-<p>RabbitMQ管理界面展示信息如下所示：<a target="_blank" rel="noopener" href="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p39379.png"><img src="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p39379.png" alt="RabbitMQ主页"></a></p>
-</li>
-</ol>
-<h4 id="通过云助手设置RabbitMQ开机自启动"><a href="#通过云助手设置RabbitMQ开机自启动" class="headerlink" title="通过云助手设置RabbitMQ开机自启动"></a>通过云助手设置RabbitMQ开机自启动</h4><ol>
-<li><p>配置RabbitMQ的rabbitmq-server文件。</p>
-<ol>
-<li><p>运行以下命令，编辑rabbitmq-server文件。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /root/rabbitmq_server-3.7.8/sbin/rabbitmq-server</span><br></pre></td></tr></table></figure></li>
-<li><p>按下shift+:组合键，然后输入<code>set nu</code>查看文件的行号。</p>
-</li>
-<li><p>按下shift+:组合键，然后输入<code>189</code>跳转至189行。</p>
-</li>
-<li><p>按下i键，进入编辑模式。</p>
-<p>在189行新增以下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:/usr/local/erlang/bin</span><br><span class="line">export HOME=/root/rabbitmq_server-3.7.8/</span><br></pre></td></tr></table></figure>
+<p>说明：分别是以daemon方式独立运行  / 内存的最大使用限制</p>
+<p>八，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost conf]# /usr/local/soft/redis5/bin/redis-server /usr/local/soft/redis5/conf/redis.conf</span><br></pre></td></tr></table></figure>
 
-<p>配置完成后，如下图所示。<a target="_blank" rel="noopener" href="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p263925.png"><img src="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p263925.png" alt="rabbitmq-server"></a></p>
-</li>
-<li><p>按下Esc键，然后输入<code>:wq</code>并回车，保存退出文件。</p>
-</li>
-</ol>
-</li>
-<li><p>调用ECS API <a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/141751.htm#doc-api-Ecs-RunCommand">RunCommand</a>，设置RabbitMQ开机自启动。</p>
-<p>调用API的具体操作，请参见<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/102988.htm#EcsApiGettingStarted">快速入门</a>。设置RabbitMQ开机自启动，您必须设置以下参数：</p>
-<table>
-<thead>
-<tr>
-<th align="left">参数</th>
-<th align="left">说明</th>
-<th align="left">取值或示例值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">RegionId</td>
-<td align="left">ECS实例所在的地域ID。</td>
-<td align="left">示例值：<code>cn-hangzhou</code></td>
-</tr>
-<tr>
-<td align="left">Name</td>
-<td align="left">云助手命令的名称。</td>
-<td align="left">示例值：<code>start-rabbitmq</code></td>
-</tr>
-<tr>
-<td align="left">Type</td>
-<td align="left">运维命令的语言类型。</td>
-<td align="left">取值：<code>RunShellScript</code></td>
-</tr>
-<tr>
-<td align="left">CommandContent</td>
-<td align="left">命令的明文内容。</td>
-<td align="left">取值：<code>/root/rabbitmq_server-3.7.8/sbin/rabbitmq-server -detached</code><strong>说明</strong> 该命令用于启动RabbitMQ。</td>
-</tr>
-<tr>
-<td align="left">RepeatMode</td>
-<td align="left">设置命令执行的方式。</td>
-<td align="left">取值：<code>EveryReboot</code></td>
-</tr>
-<tr>
-<td align="left">InstanceId.N</td>
-<td align="left">部署RabbitMQ的ECS实例ID。</td>
-<td align="left">示例值：<code>i-bp12f1b0i3r7adm3****</code></td>
-</tr>
-</tbody></table>
-<p>调用成功的JSON返回示例值如下所示，后续当您重启ECS实例后，都会触发启动RabbitMQ的云助手命令。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;RequestId&quot;: &quot;8B4BFE47-F1E3-48D1-B405-CA783B697046&quot;,</span><br><span class="line">  &quot;CommandId&quot;: &quot;c-hz01gvo1ri9****&quot;,</span><br><span class="line">  &quot;InvokeId&quot;: &quot;t-hz01gvo1rig****&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
+<p>九，检查端口是否在使用中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost conf]# netstat -anp | grep 6379</span><br><span class="line"></span><br><span class="line">tcp        0      0 127.0.0.1:6379          0.0.0.0:*               LISTEN      16073/redis-server  </span><br></pre></td></tr></table></figure>
 
+<p>十，查看redis的当前版本:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost conf]# /usr/local/soft/redis5/bin/redis-server -v</span><br><span class="line"></span><br><span class="line">Redis server v=5.0.7 sha=00000000:0 malloc=libc bits=64 build=8e31d2ed9a4c9593</span><br></pre></td></tr></table></figure>
+
+<p>十一,使redis可以用systemd方式启动和管理</p>
+<p>1,编辑service文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost liuhongdi]# vim /lib/systemd/system/redis.service</span><br></pre></td></tr></table></figure>
+
+<p>2,service文件内容:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Redis</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">PIDFile=/var/run/redis_6379.pid</span><br><span class="line">ExecStart=/usr/local/soft/redis5/bin/redis-server /usr/local/soft/redis5/conf/redis.conf</span><br><span class="line">ExecReload=/bin/kill -s HUP $MAINPID</span><br><span class="line">ExecStop=/bin/kill -s QUIT $MAINPID</span><br><span class="line">PrivateTmp=true</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>3.重载系统服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost liuhongdi]# systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+
+<p>4,用来管理redis</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">启动</span><br><span class="line">systemctl start redis    </span><br><span class="line">查看状态</span><br><span class="line">systemctl status redis</span><br><span class="line">使开机启动</span><br><span class="line">systemctl enable redis</span><br></pre></td></tr></table></figure>
+
+<p>十二，查看本地centos的版本:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost lib]# cat /etc/redhat-release </span><br><span class="line">CentOS Linux release 8.1.1911 (Core) </span><br></pre></td></tr></table></figure>
+
+<p>查询redis</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep redis</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="添加密码"><a href="#添加密码" class="headerlink" title="添加密码"></a>添加密码</h3><p>修改配置文件/etc/redis.conf</p>
+<p>在#requirepass foobared下面添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requirepass 123456</span><br></pre></td></tr></table></figure>
+
+<p>2 重启服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service redis restart</span><br></pre></td></tr></table></figure>
       
 
       
@@ -385,7 +305,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/year/cksecf6l30008x4ug4luqhjzl/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/year/cku587t1g000azcug01kd9a61/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -399,18 +319,18 @@
   
 <nav id="article-nav">
   
-    <a href="/year/cksecf6l6000dx4ugbqo18oo5/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/year/cku587sz80000zcughk4zgdck/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          安装mysql
+          Centos开放及查看端口端口设置
         
       </div>
     </a>
   
   
-    <a href="/year/cksecf6l4000ax4ugc15e5d2o/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux下载及安装nginx过程记录</div>
+    <a href="/year/cku587t1i000dzcugcnk9cvvd/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">安装mysql</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -540,15 +460,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
             
             <div class="clearfix"></div>

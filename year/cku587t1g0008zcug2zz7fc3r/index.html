@@ -6,20 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Linux安装nacos | Hexo</title>
+  <title>Linux安装RabbitMQ | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.下载nacoshttps:&#x2F;&#x2F;github.com&#x2F;alibaba&#x2F;nacos&#x2F;releases 或者 1wget https:&#x2F;&#x2F;github.com&#x2F;alibaba&#x2F;nacos&#x2F;releases&#x2F;download&#x2F;1.3.2&#x2F;nacos-server-1.3.2.tar.gz  2.解压安装包12tar -zxvf nacos-server-1.3.2.tar.gzmv nacos &#x2F;us">
+  <meta name="description" content="注：安装rabbitMq需按照请参见RabbitMQ Erlang Version Requirements选择erlang版本  1、安装erlang 运行一下命令，安装erlang所需要的依赖包  1yum install -y make gcc gcc-c++ m4 openssl openssl-devel ncurses-devel unixODBC unixODBC-devel jav">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux安装nacos">
-<meta property="og:url" content="http://example.com/year/cksecf6l8000hx4ug406fd6hg/index.html">
+<meta property="og:title" content="Linux安装RabbitMQ">
+<meta property="og:url" content="http://example.com/year/cku587t1g0008zcug2zz7fc3r/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1.下载nacoshttps:&#x2F;&#x2F;github.com&#x2F;alibaba&#x2F;nacos&#x2F;releases 或者 1wget https:&#x2F;&#x2F;github.com&#x2F;alibaba&#x2F;nacos&#x2F;releases&#x2F;download&#x2F;1.3.2&#x2F;nacos-server-1.3.2.tar.gz  2.解压安装包12tar -zxvf nacos-server-1.3.2.tar.gzmv nacos &#x2F;us">
+<meta property="og:description" content="注：安装rabbitMq需按照请参见RabbitMQ Erlang Version Requirements选择erlang版本  1、安装erlang 运行一下命令，安装erlang所需要的依赖包  1yum install -y make gcc gcc-c++ m4 openssl openssl-devel ncurses-devel unixODBC unixODBC-devel jav">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-12T06:10:23.784Z">
-<meta property="article:modified_time" content="2021-07-12T06:10:00.692Z">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210701151219577.png">
+<meta property="og:image" content="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p263785.png">
+<meta property="og:image" content="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p39377.png">
+<meta property="og:image" content="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p39379.png">
+<meta property="og:image" content="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p263925.png">
+<meta property="article:published_time" content="2021-07-12T06:10:23.792Z">
+<meta property="article:modified_time" content="2021-07-12T06:08:43.836Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210701151219577.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -137,60 +143,179 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux—8.安装nacos" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Linux—5.安装RabbitMQ" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Linux安装nacos
+      Linux安装RabbitMQ
     </h1>
   
 
         
-        <a href="/year/cksecf6l8000hx4ug406fd6hg/" class="archive-article-date">
-  	<time datetime="2021-07-12T06:10:23.784Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
+        <a href="/year/cku587t1g0008zcug2zz7fc3r/" class="archive-article-date">
+  	<time datetime="2021-07-12T06:10:23.792Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-下载nacos"><a href="#1-下载nacos" class="headerlink" title="1.下载nacos"></a>1.下载nacos</h2><p><a target="_blank" rel="noopener" href="https://github.com/alibaba/nacos/releases">https://github.com/alibaba/nacos/releases</a></p>
-<p>或者</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/alibaba/nacos/releases/download/1.3.2/nacos-server-1.3.2.tar.gz</span><br></pre></td></tr></table></figure>
+        <p><strong>注：安装rabbitMq需按照请参见<a target="_blank" rel="noopener" href="https://www.rabbitmq.com/which-erlang.html">RabbitMQ Erlang Version Requirements</a>选择erlang版本</strong></p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210701151219577.png" alt="image-20210701151219577"></p>
+<h4 id="1、安装erlang"><a href="#1、安装erlang" class="headerlink" title="1、安装erlang"></a><strong>1、安装erlang</strong></h4><ol>
+<li>运行一下命令，安装erlang所需要的依赖包</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y make gcc gcc-c++ m4 openssl openssl-devel ncurses-devel unixODBC unixODBC-devel java java-devel</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-解压安装包"><a href="#2-解压安装包" class="headerlink" title="2.解压安装包"></a>2.解压安装包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nacos-server-1.3.2.tar.gz</span><br><span class="line">mv nacos /usr/local/</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>运行一下命令，下载erlang安装包</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://erlang.org/download/otp_src_21.1.tar.gz</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-配置启动脚本"><a href="#3-配置启动脚本" class="headerlink" title="3.配置启动脚本"></a>3.配置启动脚本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd ./nacos/bin/</span><br><span class="line">vim startup.sh</span><br><span class="line"><span class="meta">#</span><span class="bash">把jdk换成绝对路径，不然systemctl找不到java环境</span></span><br><span class="line">[ ! -e &quot;$JAVA_HOME/bin/java&quot; ] &amp;&amp; JAVA_HOME=/usr/local/jdk1.8</span><br><span class="line"><span class="meta">#</span><span class="bash">[ ! -e <span class="string">&quot;<span class="variable">$JAVA_HOME</span>/bin/java&quot;</span> ] &amp;&amp; JAVA_HOME=/usr/java</span></span><br><span class="line"><span class="meta">#</span><span class="bash">[ ! -e <span class="string">&quot;<span class="variable">$JAVA_HOME</span>/bin/java&quot;</span> ] &amp;&amp; JAVA_HOME=/opt/taobao/java</span></span><br><span class="line"><span class="meta">#</span><span class="bash">[ ! -e <span class="string">&quot;<span class="variable">$JAVA_HOME</span>/bin/java&quot;</span> ] &amp;&amp; <span class="built_in">unset</span> JAVA_HOME</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>运行以下命令，解压erlang安装包。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf otp_src_21.1.tar.gz</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /lib/systemd/system/nacos.service</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>运行以下命令，进入erlang安装包的解压路径，并为erlang创建一个新的目录。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd otp_src_21.1</span><br><span class="line">mkdir -p /usr/local/erlang</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=nacos</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">ExecStart=/usr/local/nacos/bin/startup.sh -m standalone</span><br><span class="line">ExecReload=/usr/local/nacos/bin/shutdown.sh</span><br><span class="line">ExecStop=/usr/local/nacos/bin/shutdown.sh</span><br><span class="line">PrivateTmp=true</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>依次运行以下命令，编译并安装erlang。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/erlang</span><br></pre></td></tr></table></figure>
 
-<p>保存后执行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl enable nacos.service</span><br><span class="line">systemctl start nacos.service</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
 
-<h2 id="4-访问nacos"><a href="#4-访问nacos" class="headerlink" title="4.访问nacos"></a>4.访问nacos</h2><p><a target="_blank" rel="noopener" href="http://服务器ip:8848/nacos/">http://服务器IP:8848/nacos/</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用户名默认：nacos</span><br><span class="line">密码：nacos</span><br><span class="line">默认密码需尽快重置密码</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>安装完成后，运行以下命令，为erlang配置环境变量。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &#x27;export PATH=$PATH:/usr/local/erlang/bin&#x27; &gt;&gt; /etc/profile</span><br></pre></td></tr></table></figure>
 
-<h2 id="5-数据持续化"><a href="#5-数据持续化" class="headerlink" title="5.数据持续化"></a>5.数据持续化</h2><ul>
-<li><strong>初始化数据库</strong></li>
-</ul>
-<p>目前Nacos仅支持<code>Mysql</code>数据库，且版本要求：<code>5.6.5+</code></p>
-<p>Nacos的数据库脚本文件在我们下载Nacos-server时的压缩包中就有</p>
-<p>进入<code>nacos\conf</code>目录，初始化文件：<code>nacos-mysql.sql</code></p>
-<p>此处我创建一个名为 <code>nacos_config</code> 的数据库，然后执行初始化脚本</p>
-<ul>
-<li><strong>修改配置文件</strong></li>
-</ul>
-<p>这里是需要修改Nacos-server的配置文件</p>
-<p>Nacos-server其实就是一个Java工程或者说是一个Springboot项目，他的配置文件在<code>nacos\conf</code>目录下，名为 <code>application.properties</code>，在文件底部添加数据源配置：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.platform=mysql</span><br><span class="line"></span><br><span class="line">db.num=1</span><br><span class="line">db.url.0=jdbc:mysql://127.0.0.1:3306/nacos_config?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true</span><br><span class="line">db.user=root</span><br><span class="line">db.password=123456</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>运行以下命令，使环境变量立即生效。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43846510/article/details/106078873">https://blog.csdn.net/weixin_43846510/article/details/106078873</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/larscheng/p/11422909.html">https://www.cnblogs.com/larscheng/p/11422909.html</a></p>
+<ol start="8">
+<li>运行以下命令，返回系统的/root目录，然后查看erlang版本，确认是否安装成功。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd</span><br><span class="line">erl -version</span><br></pre></td></tr></table></figure>
+
+<p>返回如下信息表示erlang已成功安装。<a target="_blank" rel="noopener" href="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p263785.png"><img src="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p263785.png" alt="erl version"></a></p>
+<h4 id="2、下载并安装RabbitMQ"><a href="#2、下载并安装RabbitMQ" class="headerlink" title="2、下载并安装RabbitMQ"></a><strong>2、下载并安装RabbitMQ</strong></h4><p>RabbitMQ对Erlang的版本具有一定限制，更多信息，请参见<a target="_blank" rel="noopener" href="https://www.rabbitmq.com/which-erlang.html">RabbitMQ Erlang Version Requirements</a>。本示例使用的Erlang为21.1版本，因此选择下载RabbitMQ 3.7.8版本。</p>
+<ol>
+<li><p>运行以下命令，下载RabbitMQ安装包。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.7.8/rabbitmq-server-generic-unix-3.7.8.tar.xz</span><br></pre></td></tr></table></figure></li>
+<li><p>运行以下命令，解压RabbitMQ安装包。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf rabbitmq-server-generic-unix-3.7.8.tar.xz</span><br></pre></td></tr></table></figure></li>
+<li><p>解压完成后，运行以下命令，为RabbitMQ配置环境变量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &#x27;export PATH=$PATH:/root/rabbitmq_server-3.7.8/sbin&#x27; &gt;&gt; /etc/profile</span><br></pre></td></tr></table></figure></li>
+<li><p>运行以下命令，使环境变量立即生效。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="3、配置RabbitMQ"><a href="#3、配置RabbitMQ" class="headerlink" title="3、配置RabbitMQ"></a><strong>3、配置RabbitMQ</strong></h4><ol>
+<li><p>运行以下命令，启动RabbitMQ并后台运行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmq-server -detached</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong> 该命令只在当前运行的系统环境下启动RabbitMQ，一旦服务器重启，RabbitMQ服务将不会自动启动。因此，建议您通过阿里云的云助手功能，设置RabbitMQ开机自启动。具体操作，请参见<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/53100.html#section-9ke-67a-pwt">通过云助手设置RabbitMQ开机自启动</a>。</p>
+</li>
+<li><p>运行以下命令，启动RabbitMQ监控插件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmq-plugins enable rabbitmq_management</span><br></pre></td></tr></table></figure>
+
+<p>如果您需要关闭RabbitMQ监控插件，可以运行<code>rabbitmq-plugins disable rabbitmq_management</code>命令。</p>
+</li>
+<li><p>为保证数据安全，建议您运行以下命令，删除默认用户。</p>
+<p>RabbitMQ默认的账号用户名和密码都是<code>guest</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl delete_user guest</span><br></pre></td></tr></table></figure></li>
+<li><p>创建RabbitMQ管理员用户。</p>
+<ol>
+<li><p>运行以下命令，创建一个新用户。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl add_user &lt;用户名&gt; &lt;密码&gt;</span><br></pre></td></tr></table></figure>
+
+<p>其中，&lt;用户名&gt; 和 &lt;密码&gt; 为您自定义的信息。</p>
+</li>
+<li><p>运行以下命令，将创建的新用户设置为管理员。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl set_user_tags &lt;用户名&gt; administrator</span><br></pre></td></tr></table></figure></li>
+<li><p>运行以下命令，赋予新创建的用户所有权限。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl set_permissions -p / &lt;用户名&gt; &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>在本地主机中，使用浏览器访问<code>Linux实例的公网IP:15672</code>。</p>
+<p>显示如下页面，说明RabbitMQ安装成功。<a target="_blank" rel="noopener" href="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p39377.png"><img src="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p39377.png" alt="RabbitMQ登录页"></a></p>
+</li>
+<li><p>输入已创建的RabbitMQ管理员用户名和密码后，单击<strong>Login</strong>，进入RabbitMQ管理界面。</p>
+<p>RabbitMQ管理界面展示信息如下所示：<a target="_blank" rel="noopener" href="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p39379.png"><img src="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p39379.png" alt="RabbitMQ主页"></a></p>
+</li>
+</ol>
+<h4 id="通过云助手设置RabbitMQ开机自启动"><a href="#通过云助手设置RabbitMQ开机自启动" class="headerlink" title="通过云助手设置RabbitMQ开机自启动"></a>通过云助手设置RabbitMQ开机自启动</h4><ol>
+<li><p>配置RabbitMQ的rabbitmq-server文件。</p>
+<ol>
+<li><p>运行以下命令，编辑rabbitmq-server文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /root/rabbitmq_server-3.7.8/sbin/rabbitmq-server</span><br></pre></td></tr></table></figure></li>
+<li><p>按下shift+:组合键，然后输入<code>set nu</code>查看文件的行号。</p>
+</li>
+<li><p>按下shift+:组合键，然后输入<code>189</code>跳转至189行。</p>
+</li>
+<li><p>按下i键，进入编辑模式。</p>
+<p>在189行新增以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:/usr/local/erlang/bin</span><br><span class="line">export HOME=/root/rabbitmq_server-3.7.8/</span><br></pre></td></tr></table></figure>
+
+<p>配置完成后，如下图所示。<a target="_blank" rel="noopener" href="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p263925.png"><img src="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9845938161/p263925.png" alt="rabbitmq-server"></a></p>
+</li>
+<li><p>按下Esc键，然后输入<code>:wq</code>并回车，保存退出文件。</p>
+</li>
+</ol>
+</li>
+<li><p>调用ECS API <a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/141751.htm#doc-api-Ecs-RunCommand">RunCommand</a>，设置RabbitMQ开机自启动。</p>
+<p>调用API的具体操作，请参见<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/102988.htm#EcsApiGettingStarted">快速入门</a>。设置RabbitMQ开机自启动，您必须设置以下参数：</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+<th align="left">取值或示例值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">RegionId</td>
+<td align="left">ECS实例所在的地域ID。</td>
+<td align="left">示例值：<code>cn-hangzhou</code></td>
+</tr>
+<tr>
+<td align="left">Name</td>
+<td align="left">云助手命令的名称。</td>
+<td align="left">示例值：<code>start-rabbitmq</code></td>
+</tr>
+<tr>
+<td align="left">Type</td>
+<td align="left">运维命令的语言类型。</td>
+<td align="left">取值：<code>RunShellScript</code></td>
+</tr>
+<tr>
+<td align="left">CommandContent</td>
+<td align="left">命令的明文内容。</td>
+<td align="left">取值：<code>/root/rabbitmq_server-3.7.8/sbin/rabbitmq-server -detached</code><strong>说明</strong> 该命令用于启动RabbitMQ。</td>
+</tr>
+<tr>
+<td align="left">RepeatMode</td>
+<td align="left">设置命令执行的方式。</td>
+<td align="left">取值：<code>EveryReboot</code></td>
+</tr>
+<tr>
+<td align="left">InstanceId.N</td>
+<td align="left">部署RabbitMQ的ECS实例ID。</td>
+<td align="left">示例值：<code>i-bp12f1b0i3r7adm3****</code></td>
+</tr>
+</tbody></table>
+<p>调用成功的JSON返回示例值如下所示，后续当您重启ECS实例后，都会触发启动RabbitMQ的云助手命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;RequestId&quot;: &quot;8B4BFE47-F1E3-48D1-B405-CA783B697046&quot;,</span><br><span class="line">  &quot;CommandId&quot;: &quot;c-hz01gvo1ri9****&quot;,</span><br><span class="line">  &quot;InvokeId&quot;: &quot;t-hz01gvo1rig****&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
 
       
 
@@ -260,7 +385,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/year/cksecf6l8000hx4ug406fd6hg/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/year/cku587t1g0008zcug2zz7fc3r/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,18 +399,18 @@
   
 <nav id="article-nav">
   
-    <a href="/year/cksecf6l10004x4uggombgdcn/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/year/cku587t1i000dzcugcnk9cvvd/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          安装JDK
+          安装mysql
         
       </div>
     </a>
   
   
-    <a href="/year/cksecf6l9000jx4ug0ppy4qrc/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo+GithubPages创建自己的blog</div>
+    <a href="/year/cku587t1c0004zcugcfvi9361/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux下载及安装nginx过程记录</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -415,15 +540,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
             
             <div class="clearfix"></div>
